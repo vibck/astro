@@ -34,7 +34,8 @@ export async function updateSession(request) {
     pathname.startsWith("/dashboard") ||
     pathname.startsWith("/admin") ||
     pathname.startsWith("/birth-data") ||
-    pathname.startsWith("/checkout/success");
+    pathname.startsWith("/checkout/success") ||
+    pathname.startsWith("/set-password");
 
   // Redirect unauthenticated users trying to access protected routes
   if (!user && isProtected) {
