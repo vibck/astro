@@ -1,0 +1,252 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-gold: #C4868B;
+  --color-gold-light: #D4A0A4;
+  --color-gold-dark: #A66E73;
+  --color-warm: #C9956B;
+  --color-warm-light: #F2D5CF;
+  --color-cream: #FFF8F5;
+  --color-cream-dark: #F9EDE8;
+  --color-sand: #F0DDD6;
+  --color-rose: #B87D82;
+  --color-rose-light: #D4A0A4;
+  --color-rose-deep: #8B5A60;
+  --color-rose-muted: #C4949A;
+  --color-blush: #E8BFC2;
+  --color-earth: #9B7B80;
+  --color-surface: #FDF6EE;
+  --color-surface-light: #FFFFFF;
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+}
+
+/* Rosé Spiritual Theme */
+:root {
+  --radius: 0.75rem;
+  --background: #FFF8F5;
+  --foreground: #6B4C52;
+  --card: rgba(255, 255, 255, 0.65);
+  --card-foreground: #6B4C52;
+  --popover: #FFFFFF;
+  --popover-foreground: #6B4C52;
+  --primary: #C4868B;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F9EDE8;
+  --secondary-foreground: #6B4C52;
+  --muted: #F9EDE8;
+  --muted-foreground: #9B7B80;
+  --accent: #F9EDE8;
+  --accent-foreground: #6B4C52;
+  --destructive: #DC2626;
+  --border: #F0DDD6;
+  --input: #F0DDD6;
+  --ring: #C4868B;
+  --chart-1: #C4868B;
+  --chart-2: #D4A0A4;
+  --chart-3: #B87D82;
+  --chart-4: #9B7B80;
+  --chart-5: #6B4C52;
+  --sidebar: #FFF8F5;
+  --sidebar-foreground: #6B4C52;
+  --sidebar-primary: #C4868B;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F9EDE8;
+  --sidebar-accent-foreground: #6B4C52;
+  --sidebar-border: #F0DDD6;
+  --sidebar-ring: #C4868B;
+}
+
+body {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Soft rosé gradient background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(196, 134, 139, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 10% 90%, rgba(212, 160, 164, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 50% at 90% 50%, rgba(184, 125, 130, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Gradient text utilities */
+.text-gradient-warm {
+  background: linear-gradient(135deg, #8B5A60 0%, #C4868B 40%, #D4A0A4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-spiritual {
+  background: linear-gradient(135deg, #6B4C52 0%, #C4868B 50%, #D4A0A4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glassmorphism — rosé */
+.glass-warm {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(196, 134, 139, 0.12);
+}
+
+.glass-warm-strong {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(196, 134, 139, 0.18);
+}
+
+/* Rosé glow */
+.glow-warm {
+  box-shadow: 0 10px 40px rgba(196, 134, 139, 0.1), 0 0 80px rgba(212, 160, 164, 0.05);
+}
+
+.glow-gold-warm {
+  box-shadow: 0 4px 20px rgba(196, 134, 139, 0.2);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(5px) rotate(-1deg); }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(15px, -10px) scale(1.02); }
+  50% { transform: translate(-5px, -20px) scale(0.98); }
+  75% { transform: translate(-15px, -5px) scale(1.01); }
+}
+
+@keyframes drift-reverse {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-10px, 15px) scale(0.98); }
+  50% { transform: translate(10px, 10px) scale(1.02); }
+  75% { transform: translate(5px, -10px) scale(0.99); }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.08); opacity: 0.9; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes morph {
+  0%, 100% { border-radius: 40% 60% 60% 40% / 60% 40% 60% 40%; }
+  25% { border-radius: 50% 50% 40% 60% / 40% 60% 50% 50%; }
+  50% { border-radius: 60% 40% 50% 50% / 50% 50% 40% 60%; }
+  75% { border-radius: 40% 60% 50% 50% / 60% 40% 60% 40%; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer-warm {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-float-slow { animation: float-slow 10s ease-in-out infinite; }
+.animate-drift { animation: drift 20s ease-in-out infinite; }
+.animate-drift-reverse { animation: drift-reverse 25s ease-in-out infinite; }
+.animate-breathe { animation: breathe 6s ease-in-out infinite; }
+.animate-spin-slow { animation: spin-slow 30s linear infinite; }
+.animate-morph { animation: morph 15s ease-in-out infinite; }
+.animate-fade-up { animation: fade-up 0.8s ease-out forwards; }
+.animate-shimmer-warm { background-size: 200% auto; animation: shimmer-warm 4s linear infinite; }
+.animate-twinkle { animation: twinkle 3s ease-in-out infinite; }
+
+.animation-delay-200 { animation-delay: 200ms; }
+.animation-delay-400 { animation-delay: 400ms; }
+.animation-delay-600 { animation-delay: 600ms; }
+.animation-delay-1000 { animation-delay: 1000ms; }
+.animation-delay-2000 { animation-delay: 2000ms; }
+.animation-delay-3000 { animation-delay: 3000ms; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(196, 134, 139, 0.25);
+  color: #6B4C52;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
