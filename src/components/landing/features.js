@@ -1,7 +1,7 @@
 const features = [
   {
     title: "Individuelle Deutung",
-    description: "Kein Algorithmus — eine erfahrene Astrologin erstellt dein Reading persönlich.",
+    description: "Kein Algorithmus — eine erfahrene Astrologin erstellt dein Reading persönlich und mit Liebe.",
     icon: (
       <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
@@ -9,8 +9,17 @@ const features = [
     ),
   },
   {
+    title: "Für Erwachsene & Kinder",
+    description: "Ob für dich selbst, dein Kind oder eure Partnerschaft — jedes Reading wird individuell abgestimmt.",
+    icon: (
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+      </svg>
+    ),
+  },
+  {
     title: "Hochwertiges PDF",
-    description: "Dein Reading als professionell gestaltetes Dokument — zum Immer-wieder-Lesen.",
+    description: "Dein Reading als wunderschön gestaltetes Dokument — zum Immer-wieder-Lesen und Verschenken.",
     icon: (
       <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -19,19 +28,10 @@ const features = [
   },
   {
     title: "Sichere Zahlung",
-    description: "Bezahle sicher und unkompliziert mit Stripe — alle gängigen Zahlungsmethoden.",
+    description: "Bezahle sicher und unkompliziert — alle gängigen Zahlungsmethoden werden akzeptiert.",
     icon: (
       <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-      </svg>
-    ),
-  },
-  {
-    title: "Dein Dashboard",
-    description: "Verwalte deine Readings und lade dein PDF jederzeit herunter.",
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zm0 8a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zm10 0a1 1 0 011-1h4a1 1 0 011 1v6a1 1 0 01-1 1h-4a1 1 0 01-1-1v-6z" />
       </svg>
     ),
   },
@@ -39,7 +39,7 @@ const features = [
 
 export function Features() {
   return (
-    <section id="angebot" className="py-28 px-6 relative bg-cream-dark/30">
+    <section className="py-28 px-6 relative">
       <div className="mx-auto max-w-5xl relative">
         <div className="text-center mb-16">
           <p className="text-sm uppercase tracking-[0.3em] text-gold mb-4">

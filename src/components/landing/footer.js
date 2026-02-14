@@ -18,10 +18,10 @@ export function Footer() {
               Anmelden
             </Link>
             <a href="#angebot" className="hover:text-gold transition-colors">
-              Angebot
+              Angebote
             </a>
-            <a href="#preis" className="hover:text-gold transition-colors">
-              Preis
+            <a href="#ablauf" className="hover:text-gold transition-colors">
+              Ablauf
             </a>
           </div>
 

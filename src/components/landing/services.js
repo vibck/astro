@@ -47,32 +47,33 @@ export function Services() {
           </h2>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
-          {steps.map((step, i) => (
-            <div key={step.number} className="group text-center relative">
-              {/* Connector line (between cards) */}
-              {i < 2 && (
-                <div className="hidden md:block absolute top-12 left-[60%] w-[80%] h-px bg-gradient-to-r from-sand to-transparent" />
-              )}
+        {/* Steps row with connector lines */}
+        <div className="relative">
+          {/* Connector lines behind circles */}
+          <div className="hidden md:block absolute top-12 left-[calc(16.666%+48px)] right-[calc(16.666%+48px)] h-px bg-sand" />
 
-              {/* Icon circle */}
-              <div className="mx-auto mb-5 relative">
-                <div className="flex h-24 w-24 items-center justify-center rounded-full glass-warm-strong text-gold group-hover:glow-warm transition-all duration-500">
-                  {step.icon}
+          <div className="grid gap-12 md:gap-0 md:grid-cols-3">
+            {steps.map((step) => (
+              <div key={step.number} className="group text-center">
+                {/* Icon circle with number badge */}
+                <div className="relative inline-block mb-6">
+                  <div className="flex h-24 w-24 items-center justify-center rounded-full glass-warm-strong text-gold group-hover:glow-warm transition-all duration-500">
+                    {step.icon}
+                  </div>
+                  <span className="absolute -top-1 -right-1 flex h-7 w-7 items-center justify-center rounded-full bg-gold text-white text-xs font-bold">
+                    {step.number}
+                  </span>
                 </div>
-                <span className="absolute -top-1 -right-1 flex h-7 w-7 items-center justify-center rounded-full bg-gold text-white text-xs font-bold">
-                  {step.number}
-                </span>
-              </div>
 
-              <h3 className="font-serif text-xl font-semibold mb-2 text-foreground">
-                {step.title}
-              </h3>
-              <p className="text-earth leading-relaxed text-sm max-w-xs mx-auto">
-                {step.description}
-              </p>
-            </div>
-          ))}
+                <h3 className="font-serif text-xl font-semibold mb-2 text-foreground">
+                  {step.title}
+                </h3>
+                <p className="text-earth leading-relaxed text-sm max-w-[240px] mx-auto">
+                  {step.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

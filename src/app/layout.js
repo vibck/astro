@@ -1,4 +1,5 @@
 import { Inter, Playfair_Display } from "next/font/google";
+import { BackgroundHighlights } from "@/components/background-highlights";
 import "./globals.css";
 
 const inter = Inter({
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="de">
       <body className={`${inter.variable} ${playfair.variable} antialiased`}>
+        <BackgroundHighlights />
         {children}
       </body>
     </html>
