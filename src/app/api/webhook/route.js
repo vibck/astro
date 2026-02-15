@@ -23,6 +23,7 @@ export async function POST(request) {
       process.env.STRIPE_WEBHOOK_SECRET
     );
   } catch (err) {
+    console.error("Webhook signature verification failed:", err.message);
     return NextResponse.json(
       { error: `Webhook Error: ${err.message}` },
       { status: 400 }
@@ -31,14 +32,27 @@ export async function POST(request) {
 
   if (event.type === "checkout.session.completed") {
     const session = event.data.object;
-    const userId = session.metadata.user_id;
     const supabaseAdmin = getSupabaseAdmin();
 
-    await supabaseAdmin.from("readings").insert({
-      user_id: userId,
-      status: "paid",
-      stripe_session_id: session.id,
-    });
+    const { error } = await supabaseAdmin
+      .from("orders")
+      .upsert(
+        {
+          email: session.customer_details.email,
+          product_type: session.metadata.product_type,
+          status: "paid",
+          stripe_session_id: session.id,
+        },
+        { onConflict: "stripe_session_id" }
+      );
+
+    if (error) {
+      console.error("Failed to upsert order:", error);
+      return NextResponse.json(
+        { error: "Database error" },
+        { status: 500 }
+      );
+    }
   }
 
   return NextResponse.json({ received: true });

@@ -20,7 +20,7 @@ export async function saveBirthData({
   }
 
   const { error } = await supabase
-    .from("readings")
+    .from("orders")
     .update({
       birth_date: birthDate,
       birth_time: birthTime,

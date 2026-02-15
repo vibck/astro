@@ -4,6 +4,7 @@ import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { getProduct } from "@/lib/products";
 
 const statusLabels = {
   pending: "Ausstehend",
@@ -23,6 +24,9 @@ export function AdminReadingCard({ reading }) {
   const [uploading, setUploading] = useState(false);
   const [done, setDone] = useState(reading.status === "completed");
 
+  const product = getProduct(reading.product_type);
+  const productName = product?.name || "Reading";
+
   async function handleUpload(e) {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -30,7 +34,8 @@ export function AdminReadingCard({ reading }) {
     setUploading(true);
     const supabase = createClient();
 
-    const filePath = `${reading.user_id}/${reading.id}.pdf`;
+    const folder = reading.user_id || "guests";
+    const filePath = `${folder}/${reading.id}.pdf`;
 
     const { error: uploadError } = await supabase.storage
       .from("readings")
@@ -54,7 +59,7 @@ export function AdminReadingCard({ reading }) {
     const pdfUrl = signedData?.signedUrl || publicUrl;
 
     const { error: updateError } = await supabase
-      .from("readings")
+      .from("orders")
       .update({ pdf_url: pdfUrl, status: "completed", updated_at: new Date().toISOString() })
       .eq("id", reading.id);
 
@@ -72,31 +77,52 @@ export function AdminReadingCard({ reading }) {
       <CardContent className="py-5">
         <div className="flex items-start justify-between gap-4">
           <div className="flex-1 space-y-1">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 flex-wrap">
               <span
                 className={`inline-block h-2 w-2 rounded-full ${statusColors[reading.status]}`}
               />
               <span className="text-sm font-medium">
                 {statusLabels[reading.status]}
               </span>
+              <span className="text-xs px-2 py-0.5 rounded-full bg-gold/10 text-gold font-medium">
+                {productName}
+              </span>
               <span className="text-xs text-muted-foreground">
-                {reading.profiles?.email}
+                {reading.email}
               </span>
             </div>
 
             {reading.birth_date && (
               <div className="text-sm text-muted-foreground space-y-0.5">
                 <p>
-                  Geburtsdatum:{" "}
+                  {reading.birth_name && <strong>{reading.birth_name}: </strong>}
                   {new Date(reading.birth_date).toLocaleDateString("de-DE")}
                   {reading.birth_time && ` um ${reading.birth_time}`}
+                  {reading.birth_place && ` — ${reading.birth_place}`}
                 </p>
-                <p>Geburtsort: {reading.birth_place}</p>
                 {reading.birth_coords && (
                   <p className="text-xs">
                     Koordinaten: {reading.birth_coords.lat?.toFixed(4)},{" "}
                     {reading.birth_coords.lng?.toFixed(4)}
                   </p>
+                )}
+
+                {/* Partner data for Seelenkompass */}
+                {reading.partner_birth_name && (
+                  <>
+                    <p className="mt-1">
+                      <strong>{reading.partner_birth_name}: </strong>
+                      {new Date(reading.partner_birth_date).toLocaleDateString("de-DE")}
+                      {reading.partner_birth_time && ` um ${reading.partner_birth_time}`}
+                      {reading.partner_birth_place && ` — ${reading.partner_birth_place}`}
+                    </p>
+                    {reading.partner_birth_coords && (
+                      <p className="text-xs">
+                        Koordinaten: {reading.partner_birth_coords.lat?.toFixed(4)},{" "}
+                        {reading.partner_birth_coords.lng?.toFixed(4)}
+                      </p>
+                    )}
+                  </>
                 )}
               </div>
             )}

@@ -3,7 +3,7 @@ const steps = [
     number: "01",
     title: "Reading bestellen",
     description:
-      "Wähle dein Reading und schließe die Bestellung sicher über Stripe ab.",
+      "Wähle dein Reading und schließe die Bestellung sicher über Stripe ab — ganz ohne Anmeldung.",
     icon: (
       <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4m1.6 8l-1.5 7h13.2M8 21a1 1 0 100-2 1 1 0 000 2zm8 0a1 1 0 100-2 1 1 0 000 2z" />
@@ -25,7 +25,7 @@ const steps = [
     number: "03",
     title: "Reading erhalten",
     description:
-      "Dein persönliches Reading wird erstellt und als PDF in deinem Dashboard bereitgestellt.",
+      "Dein persönliches Reading wird erstellt und als hochwertiges PDF per E-Mail zugestellt.",
     icon: (
       <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />

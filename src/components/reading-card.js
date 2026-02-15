@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { getProduct } from "@/lib/products";
 
 const statusLabels = {
   pending: "Ausstehend",
@@ -17,16 +18,20 @@ const statusColors = {
 };
 
 export function ReadingCard({ reading }) {
+  const product = getProduct(reading.product_type);
+  const productName = product?.name || "Reading";
+
   return (
     <Card className="border-border bg-card">
       <CardContent className="flex items-center justify-between py-5">
         <div>
-          <p className="font-medium">Geburtshoroskop Reading</p>
+          <p className="font-medium">{productName}</p>
           <p className={`text-sm ${statusColors[reading.status] || "text-muted-foreground"}`}>
             {statusLabels[reading.status] || reading.status}
           </p>
           {reading.birth_date && (
             <p className="text-xs text-muted-foreground mt-1">
+              {reading.birth_name && <>{reading.birth_name} &middot; </>}
               {reading.birth_place} &middot;{" "}
               {new Date(reading.birth_date).toLocaleDateString("de-DE")}
             </p>
