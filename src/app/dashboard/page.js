@@ -16,8 +16,8 @@ export default async function DashboardPage() {
     redirect("/login");
   }
 
-  const { data: readings } = await supabase
-    .from("readings")
+  const { data: orders } = await supabase
+    .from("orders")
     .select("*")
     .eq("user_id", user.id)
     .order("created_at", { ascending: false });
@@ -40,14 +40,14 @@ export default async function DashboardPage() {
         </div>
 
         {/* Content */}
-        {readings && readings.length > 0 ? (
+        {orders && orders.length > 0 ? (
           <div>
             <h2 className="font-serif text-xl font-semibold text-foreground mb-4">
-              Deine Readings
+              Deine Bestellungen
             </h2>
             <div className="space-y-4">
-              {readings.map((reading) => (
-                <ReadingCard key={reading.id} reading={reading} />
+              {orders.map((order) => (
+                <ReadingCard key={order.id} reading={order} />
               ))}
             </div>
           </div>
@@ -72,7 +72,7 @@ export default async function DashboardPage() {
               Willkommen bei Seelensprache
             </h2>
             <p className="text-earth mb-8 max-w-md mx-auto leading-relaxed">
-              Du hast noch keine Readings. Bestelle jetzt dein erstes persönliches
+              Du hast noch keine Bestellungen. Bestelle jetzt dein erstes persönliches
               Astrologie-Reading und entdecke, was die Sterne für dich bereithalten.
             </p>
 

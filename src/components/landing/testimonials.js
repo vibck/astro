@@ -2,17 +2,17 @@ const testimonials = [
   {
     text: "Mein Reading hat mir so viele Aha-Momente geschenkt. Es fühlt sich an, als würde jemand meine Seele verstehen.",
     name: "Laura M.",
-    type: "Geburtshoroskop",
+    type: "Seelenspiegel",
   },
   {
     text: "Die Seelenkarte für meine Tochter ist das schönste Geschenk, das ich je bekommen habe. So liebevoll und treffend!",
     name: "Sarah K.",
-    type: "Seelenkarte für Kinder",
+    type: "Seelenkarte",
   },
   {
     text: "Das Partnerschafts-Reading hat uns geholfen, unsere Dynamik besser zu verstehen. Absolut empfehlenswert!",
     name: "Nina & Tom",
-    type: "Partnerschafts-Reading",
+    type: "Seelenkompass",
   },
 ];
 

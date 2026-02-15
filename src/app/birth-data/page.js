@@ -19,9 +19,9 @@ export default async function BirthDataPage({ searchParams }) {
     redirect("/dashboard");
   }
 
-  // Verify the reading belongs to the user
+  // Verify the order belongs to the user
   const { data: reading } = await supabase
-    .from("readings")
+    .from("orders")
     .select("id, birth_date")
     .eq("id", reading_id)
     .eq("user_id", user.id)

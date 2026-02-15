@@ -38,7 +38,8 @@ create table if not exists public.readings (
   stripe_session_id text,
   pdf_url text,
   created_at timestamp with time zone default now(),
-  updated_at timestamp with time zone default now()
+  updated_at timestamp with time zone default now(),
+  constraint readings_stripe_session_id_unique unique (stripe_session_id)
 );
 
 -- 3. Row Level Security (RLS)
@@ -90,7 +91,73 @@ create policy "Admins can update all readings"
     )
   );
 
--- 4. Storage Bucket für PDFs
+-- 4. Orders Tabelle (Guest Checkout — ersetzt readings für neue Bestellungen)
+create table if not exists public.orders (
+  id uuid default gen_random_uuid() primary key,
+  email text not null,
+  product_type text not null check (product_type in ('seelenspiegel', 'seelenkarte', 'seelenkompass')),
+  status text check (status in ('pending', 'paid', 'processing', 'completed')) default 'pending',
+  stripe_session_id text,
+  -- Geburtsdaten Person 1
+  birth_name text,
+  birth_date date,
+  birth_time time,
+  birth_place text,
+  birth_coords jsonb,
+  -- Partner-Daten (nur Seelenkompass)
+  partner_birth_name text,
+  partner_birth_date date,
+  partner_birth_time time,
+  partner_birth_place text,
+  partner_birth_coords jsonb,
+  -- Optionaler Account
+  user_id uuid references public.profiles(id) on delete set null,
+  marketing_consent boolean default false,
+  pdf_url text,
+  created_at timestamp with time zone default now(),
+  updated_at timestamp with time zone default now(),
+  constraint orders_stripe_session_id_unique unique (stripe_session_id)
+);
+
+-- Orders RLS
+alter table public.orders enable row level security;
+
+-- Orders: User kann eigene Orders lesen
+create policy "Users can view own orders"
+  on public.orders for select
+  using (auth.uid() = user_id);
+
+-- Orders: User kann eigene Orders updaten
+create policy "Users can update own orders"
+  on public.orders for update
+  using (auth.uid() = user_id);
+
+-- Orders: Admins können alle Orders sehen
+create policy "Admins can view all orders"
+  on public.orders for select
+  using (
+    exists (
+      select 1 from public.profiles
+      where profiles.id = auth.uid()
+      and profiles.is_admin = true
+    )
+  );
+
+-- Orders: Admins können alle Orders updaten
+create policy "Admins can update all orders"
+  on public.orders for update
+  using (
+    exists (
+      select 1 from public.profiles
+      where profiles.id = auth.uid()
+      and profiles.is_admin = true
+    )
+  );
+
+-- 5. marketing_consent zu Profiles hinzufügen
+alter table public.profiles add column if not exists marketing_consent boolean default false;
+
+-- 6. Storage Bucket für PDFs
 insert into storage.buckets (id, name, public)
 values ('readings', 'readings', false)
 on conflict do nothing;

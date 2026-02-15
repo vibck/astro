@@ -69,7 +69,7 @@ export function Hero() {
         {/* Subline */}
         <p className="mt-6 md:mt-8 text-lg md:text-xl text-[#6B4C52] font-medium max-w-xl mx-auto leading-relaxed animate-fade-up animation-delay-200 drop-shadow-[0_1px_6px_rgba(255,248,245,0.7)]">
           Persönliche Astrologie-Readings — liebevoll gedeutet und als
-          hochwertiges PDF für dich und dein Kind aufbereitet.
+          hochwertiges PDF für dich, dein Kind oder eure Partnerschaft aufbereitet.
         </p>
 
         {/* CTAs */}

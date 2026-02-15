@@ -25,14 +25,14 @@ export default async function AdminPage() {
     redirect("/dashboard");
   }
 
-  // Get all readings with user info
-  const { data: readings } = await supabase
-    .from("readings")
+  // Get all orders (with optional user profile for linked accounts)
+  const { data: orders } = await supabase
+    .from("orders")
     .select("*, profiles(email, full_name)")
     .order("created_at", { ascending: false });
 
   const statusOrder = { paid: 0, processing: 1, completed: 2, pending: 3 };
-  const sorted = readings?.sort(
+  const sorted = orders?.sort(
     (a, b) => (statusOrder[a.status] ?? 4) - (statusOrder[b.status] ?? 4)
   );
 
@@ -45,7 +45,7 @@ export default async function AdminPage() {
               Admin-Bereich
             </h1>
             <p className="text-muted-foreground mt-1">
-              {readings?.length || 0} Bestellungen
+              {orders?.length || 0} Bestellungen
             </p>
           </div>
           <LogoutButton />
