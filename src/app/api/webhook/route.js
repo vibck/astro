@@ -25,7 +25,7 @@ export async function POST(request) {
   } catch (err) {
     console.error("Webhook signature verification failed:", err.message);
     return NextResponse.json(
-      { error: `Webhook Error: ${err.message}` },
+      { error: "Webhook verification failed" },
       { status: 400 }
     );
   }

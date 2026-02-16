@@ -31,6 +31,36 @@ export async function POST(request) {
     return NextResponse.json({ error: "Fehlende Pflichtfelder." }, { status: 400 });
   }
 
+  // Validate UUID format for orderId
+  const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+  if (!uuidRegex.test(orderId)) {
+    return NextResponse.json({ error: "Ungültige Bestell-ID." }, { status: 400 });
+  }
+
+  // Validate coordinate ranges
+  if (
+    typeof birthCoords.lat !== "number" || typeof birthCoords.lng !== "number" ||
+    birthCoords.lat < -90 || birthCoords.lat > 90 ||
+    birthCoords.lng < -180 || birthCoords.lng > 180
+  ) {
+    return NextResponse.json({ error: "Ungültige Koordinaten." }, { status: 400 });
+  }
+
+  // Validate date format (YYYY-MM-DD)
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(birthDate) || isNaN(Date.parse(birthDate))) {
+    return NextResponse.json({ error: "Ungültiges Datumsformat." }, { status: 400 });
+  }
+
+  // Validate time format (HH:MM)
+  if (!/^\d{2}:\d{2}$/.test(birthTime)) {
+    return NextResponse.json({ error: "Ungültiges Zeitformat." }, { status: 400 });
+  }
+
+  // Sanitize string inputs (limit length)
+  if (birthName.length > 100 || birthPlace.length > 300) {
+    return NextResponse.json({ error: "Eingabe zu lang." }, { status: 400 });
+  }
+
   const supabaseAdmin = getSupabaseAdmin();
 
   // Verify order exists and birth_date is not yet set
@@ -62,6 +92,27 @@ export async function POST(request) {
 
   // Partner data (Seelenkompass)
   if (partnerBirthName) {
+    // Validate partner data
+    if (!partnerBirthDate || !partnerBirthTime || !partnerBirthPlace || !partnerBirthCoords) {
+      return NextResponse.json({ error: "Fehlende Partner-Pflichtfelder." }, { status: 400 });
+    }
+    if (
+      typeof partnerBirthCoords.lat !== "number" || typeof partnerBirthCoords.lng !== "number" ||
+      partnerBirthCoords.lat < -90 || partnerBirthCoords.lat > 90 ||
+      partnerBirthCoords.lng < -180 || partnerBirthCoords.lng > 180
+    ) {
+      return NextResponse.json({ error: "Ungültige Partner-Koordinaten." }, { status: 400 });
+    }
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(partnerBirthDate) || isNaN(Date.parse(partnerBirthDate))) {
+      return NextResponse.json({ error: "Ungültiges Partner-Datumsformat." }, { status: 400 });
+    }
+    if (!/^\d{2}:\d{2}$/.test(partnerBirthTime)) {
+      return NextResponse.json({ error: "Ungültiges Partner-Zeitformat." }, { status: 400 });
+    }
+    if (partnerBirthName.length > 100 || partnerBirthPlace.length > 300) {
+      return NextResponse.json({ error: "Partner-Eingabe zu lang." }, { status: 400 });
+    }
+
     updateData.partner_birth_name = partnerBirthName;
     updateData.partner_birth_date = partnerBirthDate;
     updateData.partner_birth_time = partnerBirthTime;
@@ -81,8 +132,9 @@ export async function POST(request) {
     if (authError) {
       // User may already exist — that's OK, just skip account creation
       if (!authError.message.includes("already")) {
+        console.error("Account creation failed:", authError.message);
         return NextResponse.json(
-          { error: "Account konnte nicht erstellt werden: " + authError.message },
+          { error: "Account konnte nicht erstellt werden. Bitte versuche es erneut." },
           { status: 400 }
         );
       }
