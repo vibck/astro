@@ -13,16 +13,19 @@ export function Footer() {
             </span>
           </div>
 
-          <div className="flex items-center gap-6 text-sm text-earth">
-            <Link href="/login" className="hover:text-gold transition-colors">
-              Anmelden
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-earth">
+            <Link href="/impressum" className="hover:text-gold transition-colors">
+              Impressum
             </Link>
-            <a href="#angebot" className="hover:text-gold transition-colors">
-              Angebote
-            </a>
-            <a href="#ablauf" className="hover:text-gold transition-colors">
-              Ablauf
-            </a>
+            <Link href="/datenschutz" className="hover:text-gold transition-colors">
+              Datenschutz
+            </Link>
+            <Link href="/agb" className="hover:text-gold transition-colors">
+              AGB
+            </Link>
+            <Link href="/widerruf" className="hover:text-gold transition-colors">
+              Widerruf
+            </Link>
           </div>
 
           <p className="text-xs text-earth/60">
