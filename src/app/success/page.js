@@ -3,6 +3,7 @@ import { getStripe } from "@/lib/stripe";
 import { getProduct } from "@/lib/products";
 import { createClient } from "@supabase/supabase-js";
 import { SuccessBirthDataForm } from "@/components/success-birth-data-form";
+import { Button } from "@/components/ui/button";
 
 function getSupabaseAdmin() {
   return createClient(
@@ -73,9 +74,15 @@ export default async function SuccessPage({ searchParams }) {
           <h1 className="font-serif text-2xl font-bold text-gold mb-2">
             Bereits eingegeben
           </h1>
-          <p className="text-earth">
+          <p className="text-earth mb-6">
             Deine Geburtsdaten wurden bereits gespeichert. Wir erstellen dein {product.name} und senden es dir per E-Mail an <strong>{email}</strong>.
           </p>
+          <Button
+            asChild
+            className="bg-gold text-white hover:bg-gold-light rounded-full px-8 glow-gold-warm"
+          >
+            <a href="/">Zurück zur Startseite</a>
+          </Button>
         </div>
       </div>
     );

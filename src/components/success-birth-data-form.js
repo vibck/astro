@@ -147,10 +147,16 @@ export function SuccessBirthDataForm({ orderId, productType, email }) {
             Deine Daten wurden gespeichert. Wir erstellen dein <strong>{product.name}</strong> und senden es dir per E-Mail an <strong>{email}</strong>.
           </p>
           {password && (
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground mb-4">
               Dein Account wurde erstellt. Du kannst dich jetzt mit deiner E-Mail und deinem Passwort einloggen.
             </p>
           )}
+          <Button
+            asChild
+            className="bg-gold text-white hover:bg-gold-light rounded-full px-8 glow-gold-warm"
+          >
+            <a href="/">Zurück zur Startseite</a>
+          </Button>
         </CardContent>
       </Card>
     );
