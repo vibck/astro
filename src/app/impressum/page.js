@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Impressum | Seelensprache",
-  description: "Impressum und Anbieterkennzeichnung gemäß § 5 TMG.",
+  description: "Impressum und Anbieterkennzeichnung gemäß § 5 DDG.",
 };
 
 export default function ImpressumPage() {
@@ -27,36 +27,25 @@ export default function ImpressumPage() {
 
           <div className="space-y-6 text-earth text-sm leading-relaxed">
             <section>
-              <h2 className="font-serif text-lg text-gold mb-2">Angaben gemäß § 5 TMG</h2>
+              <h2 className="font-serif text-lg text-gold mb-2">Angaben gemäß § 5 DDG</h2>
               <p>
-                [TODO: Vorname Nachname]<br />
-                [TODO: Straße Hausnummer]<br />
-                [TODO: PLZ Ort]
+                Patricia Beck<br />
+                Sandberg 20<br />
+                27612 Loxstedt
               </p>
             </section>
 
             <section>
               <h2 className="font-serif text-lg text-gold mb-2">Kontakt</h2>
               <p>
-                E-Mail: [TODO: E-Mail-Adresse]<br />
-                Telefon: [TODO: Telefonnummer (optional)]
+                E-Mail: kontakt@seelensprache.com
               </p>
             </section>
 
             <section>
               <h2 className="font-serif text-lg text-gold mb-2">Umsatzsteuer-ID</h2>
               <p>
-                Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:<br />
-                [TODO: USt-IdNr. oder „Kleinunternehmer gemäß § 19 UStG — keine Umsatzsteuer-ID"]
-              </p>
-            </section>
-
-            <section>
-              <h2 className="font-serif text-lg text-gold mb-2">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
-              <p>
-                [TODO: Vorname Nachname]<br />
-                [TODO: Straße Hausnummer]<br />
-                [TODO: PLZ Ort]
+                Kleinunternehmerin gemäß § 19 UStG. Es wird keine Umsatzsteuer berechnet und ausgewiesen.
               </p>
             </section>
 

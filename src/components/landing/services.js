@@ -36,7 +36,7 @@ const steps = [
 
 export function Services() {
   return (
-    <section id="ablauf" className="py-28 px-6 relative">
+    <section id="ablauf" className="py-16 md:py-28 px-6 relative">
       <div className="mx-auto max-w-5xl relative">
         <div className="text-center mb-16">
           <p className="text-sm uppercase tracking-[0.3em] text-gold mb-4">

@@ -38,15 +38,15 @@ export default function WiderrufPage() {
                 Um Ihr Widerrufsrecht auszuüben, müssen Sie uns
               </p>
               <p className="mt-2 ml-4">
-                [TODO: Vorname Nachname]<br />
-                [TODO: Straße Hausnummer]<br />
-                [TODO: PLZ Ort]<br />
-                E-Mail: [TODO: E-Mail-Adresse]
+                Patricia Beck<br />
+                Sandberg 20<br />
+                27612 Loxstedt<br />
+                E-Mail: kontakt@seelensprache.com
               </p>
               <p className="mt-2">
                 mittels einer eindeutigen Erklärung (z.&nbsp;B. ein mit der Post versandter Brief
                 oder eine E-Mail) über Ihren Entschluss, diesen Vertrag zu widerrufen,
-                informieren. Sie können dafür das beigefügte Muster-Widerrufsformular verwenden,
+                informieren. Sie können dafür das untenstehende Muster-Widerrufsformular verwenden,
                 das jedoch nicht vorgeschrieben ist.
               </p>
               <p className="mt-2">
@@ -115,45 +115,10 @@ export default function WiderrufPage() {
               </p>
             </section>
 
-            {/* Muster-Widerrufsformular */}
-            <section>
-              <h2 className="font-serif text-lg text-gold mb-2">Muster-Widerrufsformular</h2>
-              <p className="mb-2">
-                (Wenn Sie den Vertrag widerrufen wollen, dann füllen Sie bitte dieses Formular aus
-                und senden Sie es zurück.)
-              </p>
-              <div className="bg-white/30 rounded-2xl p-6 space-y-2 border border-sand/50">
-                <p>An:</p>
-                <p className="ml-4">
-                  [TODO: Vorname Nachname]<br />
-                  [TODO: Straße Hausnummer]<br />
-                  [TODO: PLZ Ort]<br />
-                  [TODO: E-Mail-Adresse]
-                </p>
-                <p className="mt-3">
-                  Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag
-                  über den Kauf der folgenden Waren (*) / die Erbringung der folgenden
-                  Dienstleistung (*):
-                </p>
-                <p>_______________________________________________</p>
-                <p>Bestellt am (*) / erhalten am (*):</p>
-                <p>_______________________________________________</p>
-                <p>Name des/der Verbraucher(s):</p>
-                <p>_______________________________________________</p>
-                <p>Anschrift des/der Verbraucher(s):</p>
-                <p>_______________________________________________</p>
-                <p>Datum:</p>
-                <p>_______________________________________________</p>
-                <p>Unterschrift des/der Verbraucher(s) (nur bei Mitteilung auf Papier):</p>
-                <p>_______________________________________________</p>
-                <p className="text-earth/60 text-xs mt-3">(*) Unzutreffendes streichen.</p>
-              </div>
-            </section>
-
             {/* Stand */}
             <section className="pt-4 border-t border-sand/50">
               <p className="text-earth/60 text-xs">
-                Stand: [TODO: Datum einfügen]
+                Stand: 17. Februar 2026
               </p>
             </section>
           </div>

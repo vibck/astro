@@ -30,10 +30,10 @@ export default function DatenschutzPage() {
             <section>
               <h2 className="font-serif text-lg text-gold mb-2">1. Verantwortlicher</h2>
               <p>
-                [TODO: Vorname Nachname]<br />
-                [TODO: Straße Hausnummer]<br />
-                [TODO: PLZ Ort]<br />
-                E-Mail: [TODO: E-Mail-Adresse]
+                Patricia Beck<br />
+                Sandberg 20<br />
+                27612 Loxstedt<br />
+                E-Mail: kontakt@seelensprache.com
               </p>
             </section>
 
@@ -173,7 +173,7 @@ export default function DatenschutzPage() {
                 <li><strong>Widerspruch</strong> gegen die Verarbeitung (Art. 21 DSGVO)</li>
               </ul>
               <p className="mt-2">
-                Zur Ausübung Ihrer Rechte wenden Sie sich an: [TODO: E-Mail-Adresse]
+                Zur Ausübung Ihrer Rechte wenden Sie sich an: kontakt@seelensprache.com
               </p>
             </section>
 
@@ -190,7 +190,7 @@ export default function DatenschutzPage() {
             {/* Stand */}
             <section className="pt-4 border-t border-sand/50">
               <p className="text-earth/60 text-xs">
-                Stand: [TODO: Datum einfügen]
+                Stand: 17. Februar 2026
               </p>
             </section>
           </div>

@@ -39,7 +39,7 @@ export default async function AdminPage() {
   return (
     <div className="min-h-screen px-6 py-12">
       <div className="mx-auto max-w-5xl">
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
           <div>
             <h1 className="font-serif text-3xl font-bold text-gold">
               Admin-Bereich

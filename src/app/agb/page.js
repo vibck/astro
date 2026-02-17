@@ -33,9 +33,9 @@ export default function AGBPage() {
                 (1) Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge zwischen
               </p>
               <p className="mt-2 ml-4">
-                [TODO: Vorname Nachname]<br />
-                [TODO: Straße Hausnummer]<br />
-                [TODO: PLZ Ort]<br />
+                Patricia Beck<br />
+                Sandberg 20<br />
+                27612 Loxstedt<br />
                 (nachfolgend „Anbieter")
               </p>
               <p className="mt-2">
@@ -84,9 +84,8 @@ export default function AGBPage() {
             <section>
               <h2 className="font-serif text-lg text-gold mb-2">§ 4 Preise und Zahlung</h2>
               <p>
-                (1) Alle auf der Website genannten Preise sind Endpreise inklusive der gesetzlichen
-                Mehrwertsteuer (sofern anfallend). [TODO: Falls Kleinunternehmer: „Der Anbieter ist
-                Kleinunternehmer gemäß § 19 UStG und weist keine Umsatzsteuer aus."]
+                (1) Alle auf der Website genannten Preise sind Endpreise. Der Anbieter ist
+                Kleinunternehmer gemäß § 19 UStG und weist keine Umsatzsteuer aus.
               </p>
               <p className="mt-2">
                 (2) Die Zahlung erfolgt über den Zahlungsdienstleister Stripe. Der Kaufpreis ist
@@ -187,7 +186,7 @@ export default function AGBPage() {
             {/* Stand */}
             <section className="pt-4 border-t border-sand/50">
               <p className="text-earth/60 text-xs">
-                Stand: [TODO: Datum einfügen]
+                Stand: 17. Februar 2026
               </p>
             </section>
           </div>
