@@ -74,7 +74,7 @@ export function Offerings() {
   }
 
   return (
-    <section id="angebot" className="py-28 px-6 relative bg-cream-dark/30">
+    <section id="angebot" className="py-16 md:py-28 px-6 relative bg-cream-dark/30">
       <div className="mx-auto max-w-6xl relative">
         <div className="text-center mb-16">
           <p className="text-sm uppercase tracking-[0.3em] text-gold mb-4">
@@ -89,7 +89,7 @@ export function Offerings() {
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3 items-stretch">
+        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 items-stretch">
           {productList.map((product) => (
             <div
               key={product.id}
