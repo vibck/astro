@@ -4,6 +4,7 @@ import { LogoutButton } from "@/components/logout-button";
 import { OrderButton } from "@/components/order-button";
 import { ReadingCard } from "@/components/reading-card";
 import Link from "next/link";
+import { BrandLogo } from "@/components/brand-logo";
 
 export default async function DashboardPage() {
   const supabase = await createClient();
@@ -27,10 +28,9 @@ export default async function DashboardPage() {
       <div className="mx-auto max-w-4xl relative z-10">
         {/* Header */}
         <div className="flex flex-col sm:flex-row items-start justify-between mb-10 gap-4">
-          <Link href="/" className="flex items-center gap-0 mt-2">
-            <img src="/logo.png" alt="Seelensprache Logo" className="h-28 w-28 -my-9 -ml-8" />
-            <span className="text-4xl text-gradient-warm -ml-7 pl-1 pr-1" style={{ fontFamily: 'var(--font-dancing-script)' }}>Seelensprache</span>
-          </Link>
+          <div className="mt-2">
+            <BrandLogo size="md" />
+          </div>
           <div className="flex flex-col items-end gap-1 mt-2">
             <div className="flex items-center gap-3">
               <OrderButton />

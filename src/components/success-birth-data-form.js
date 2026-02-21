@@ -69,6 +69,7 @@ export function SuccessBirthDataForm({ orderId, productType, email }) {
 
   // Prüfe ob schon ein Account mit dieser E-Mail existiert
   useEffect(() => {
+    if (!email) return;
     fetch("/api/check-account", {
       method: "POST",
       headers: { "Content-Type": "application/json" },

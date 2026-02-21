@@ -1,12 +1,5 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
-
-function getSupabaseAdmin() {
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY
-  );
-}
+import { getSupabaseAdmin } from "@/lib/supabase/admin";
 
 export async function POST(request) {
   const body = await request.json();
@@ -134,10 +127,10 @@ export async function POST(request) {
   if (existingUser) {
     // Account existiert schon → Order diesem User zuordnen
     userId = existingUser.id;
-  } else if (password && email) {
+  } else if (password && orderEmail) {
     // Neuen Account erstellen (nur wenn noch keiner existiert)
     const { data: userData, error: authError } = await supabaseAdmin.auth.admin.createUser({
-      email,
+      email: orderEmail,
       password,
       email_confirm: true,
     });

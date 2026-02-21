@@ -1,16 +1,9 @@
 import { redirect } from "next/navigation";
 import { getStripe } from "@/lib/stripe";
 import { getProduct } from "@/lib/products";
-import { createClient } from "@supabase/supabase-js";
+import { getSupabaseAdmin } from "@/lib/supabase/admin";
 import { SuccessBirthDataForm } from "@/components/success-birth-data-form";
 import { Button } from "@/components/ui/button";
-
-function getSupabaseAdmin() {
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY
-  );
-}
 
 export default async function SuccessPage({ searchParams }) {
   const { session_id } = await searchParams;
