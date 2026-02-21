@@ -31,21 +31,21 @@ export default async function DashboardPage() {
           <div className="mt-2">
             <BrandLogo size="md" />
           </div>
-          <div className="flex flex-col items-end gap-1 mt-2">
-            <div className="flex items-center gap-3">
-              <OrderButton />
-              <LogoutButton />
-            </div>
-            <p className="text-earth text-sm">{user.email}</p>
+          <div className="flex items-center gap-3 mt-2">
+            <OrderButton />
+            <LogoutButton />
           </div>
         </div>
 
         {/* Content */}
         {orders && orders.length > 0 ? (
           <div>
-            <h2 className="font-serif text-xl font-semibold text-foreground mb-4">
-              Deine Bestellungen
-            </h2>
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="font-serif text-xl font-semibold text-foreground">
+                Deine Bestellungen
+              </h2>
+              <p className="text-earth text-sm">{user.email}</p>
+            </div>
             <div className="space-y-4">
               {orders.map((order) => (
                 <ReadingCard key={order.id} reading={order} />

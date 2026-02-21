@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { getSupabaseAdmin } from "@/lib/supabase/admin";
+import { getProduct } from "@/lib/products";
+import { sendNewOrderNotification } from "@/lib/email";
 
 export async function POST(request) {
   const body = await request.json();
@@ -117,12 +119,13 @@ export async function POST(request) {
   const orderEmail = email || existingOrder.email;
   let userId = null;
 
+  // listUsers filter matcht teilweise fuzzy, daher exakten Vergleich
   const { data: existingUsers } = await supabaseAdmin.auth.admin.listUsers({
     filter: `email.eq.${orderEmail}`,
     page: 1,
-    perPage: 1,
+    perPage: 10,
   });
-  const existingUser = existingUsers?.users?.[0];
+  const existingUser = existingUsers?.users?.find((u) => u.email === orderEmail);
 
   if (existingUser) {
     // Account existiert schon → Order diesem User zuordnen
@@ -168,6 +171,20 @@ export async function POST(request) {
       { error: "Fehler beim Speichern. Bitte versuche es erneut." },
       { status: 500 }
     );
+  }
+
+  // Admin per E-Mail über neue Bestellung benachrichtigen
+  const { data: updatedOrder } = await supabaseAdmin
+    .from("orders")
+    .select("email, product_type, birth_name, birth_date, birth_time, birth_place, partner_birth_name, partner_birth_date, partner_birth_time, partner_birth_place")
+    .eq("id", orderId)
+    .single();
+
+  if (updatedOrder) {
+    const product = getProduct(updatedOrder.product_type);
+    const productName = product?.name || "Reading";
+    // Fire-and-forget — Fehler werden geloggt aber blockieren nicht die Response
+    sendNewOrderNotification(updatedOrder, productName);
   }
 
   return NextResponse.json({ success: true });

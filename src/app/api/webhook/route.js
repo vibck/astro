@@ -26,25 +26,44 @@ export async function POST(request) {
   if (event.type === "checkout.session.completed") {
     const session = event.data.object;
     const supabaseAdmin = getSupabaseAdmin();
+    const email = session.customer_details.email;
 
-    const { error } = await supabaseAdmin
-      .from("orders")
-      .upsert(
-        {
-          email: session.customer_details.email,
-          product_type: session.metadata.product_type,
+    // Produkt-Typen auslesen: neues Format (JSON Array) oder altes Format (einzelner String)
+    let productTypes;
+    if (session.metadata.product_types) {
+      try {
+        productTypes = JSON.parse(session.metadata.product_types);
+      } catch {
+        productTypes = [session.metadata.product_type];
+      }
+    } else {
+      productTypes = [session.metadata.product_type];
+    }
+
+    // Eine Order pro Produkt erstellen
+    for (let i = 0; i < productTypes.length; i++) {
+      const { error } = await supabaseAdmin
+        .from("orders")
+        .insert({
+          email,
+          product_type: productTypes[i],
           status: "paid",
           stripe_session_id: session.id,
-        },
-        { onConflict: "stripe_session_id" }
-      );
+          cart_item_index: i,
+        });
 
-    if (error) {
-      console.error("Failed to upsert order:", error);
-      return NextResponse.json(
-        { error: "Database error" },
-        { status: 500 }
-      );
+      if (error) {
+        // Falls die Order schon existiert (z.B. durch Success Page upsert), ignorieren
+        if (error.code === "23505") {
+          console.log(`Order already exists for session ${session.id} index ${i}`);
+        } else {
+          console.error(`Failed to insert order ${i}:`, error);
+          return NextResponse.json(
+            { error: "Database error" },
+            { status: 500 }
+          );
+        }
+      }
     }
   }
 

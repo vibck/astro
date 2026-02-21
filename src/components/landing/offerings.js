@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { productList } from "@/lib/products";
+import { useCart } from "@/lib/cart-context";
 
 const icons = {
   seelenspiegel: (
@@ -54,23 +55,13 @@ const icons = {
 };
 
 export function Offerings() {
-  const [loadingProduct, setLoadingProduct] = useState(null);
+  const { addItem } = useCart();
+  const [addedProduct, setAddedProduct] = useState(null);
 
-  async function handleOrder(productId) {
-    setLoadingProduct(productId);
-    try {
-      const res = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ product: productId }),
-      });
-      const data = await res.json();
-      if (data.url) {
-        window.location.href = data.url;
-      }
-    } finally {
-      setLoadingProduct(null);
-    }
+  function handleAddToCart(productId) {
+    addItem(productId);
+    setAddedProduct(productId);
+    setTimeout(() => setAddedProduct(null), 1500);
   }
 
   return (
@@ -147,11 +138,17 @@ export function Offerings() {
                 {/* CTA — direct checkout */}
                 <div className="mt-auto">
                   <Button
-                    onClick={() => handleOrder(product.id)}
-                    disabled={loadingProduct === product.id}
-                    className="w-full rounded-full border border-gold/30 bg-transparent text-gold hover:bg-gold hover:text-white transition-all duration-300"
+                    onClick={() => handleAddToCart(product.id)}
+                    className={`w-full rounded-full border transition-all duration-300 ${addedProduct === product.id ? "border-green-400/50 bg-green-50 text-green-700" : "border-gold/30 bg-transparent text-gold hover:bg-gold hover:text-white"}`}
                   >
-                    {loadingProduct === product.id ? "Wird geladen..." : "Jetzt bestellen"}
+                    {addedProduct === product.id ? (
+                      <span className="flex items-center justify-center gap-2">
+                        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                        </svg>
+                        Hinzugefügt
+                      </span>
+                    ) : "In den Warenkorb"}
                   </Button>
                 </div>
               </div>

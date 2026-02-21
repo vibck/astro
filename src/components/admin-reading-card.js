@@ -35,7 +35,10 @@ export function AdminReadingCard({ reading }) {
     const supabase = createClient();
 
     const folder = reading.user_id || "guests";
-    const filePath = `${folder}/${reading.id}.pdf`;
+    // Schöner Dateiname: "Seelensprache - Seelenspiegel - Max Mustermann.pdf"
+    const safeName = (reading.birth_name || "Reading").replace(/[^a-zA-ZäöüÄÖÜß\s-]/g, "").trim();
+    const fileName = `Seelensprache - ${productName} - ${safeName}.pdf`;
+    const filePath = `${folder}/${fileName}`;
 
     const { error: uploadError } = await supabase.storage
       .from("readings")
@@ -58,13 +61,16 @@ export function AdminReadingCard({ reading }) {
 
     const pdfUrl = signedData?.signedUrl || publicUrl;
 
-    const { error: updateError } = await supabase
-      .from("orders")
-      .update({ pdf_url: pdfUrl, status: "completed", updated_at: new Date().toISOString() })
-      .eq("id", reading.id);
+    // API-Route nutzen, damit serverseitig die Kunden-E-Mail versendet wird
+    const res = await fetch("/api/admin/complete-order", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ orderId: reading.id, pdfUrl }),
+    });
 
-    if (updateError) {
-      alert("Status-Update fehlgeschlagen: " + updateError.message);
+    if (!res.ok) {
+      const data = await res.json();
+      alert("Status-Update fehlgeschlagen: " + (data.error || "Unbekannter Fehler"));
     } else {
       setDone(true);
     }

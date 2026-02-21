@@ -2,14 +2,25 @@
 
 import { useState, useEffect, useRef } from "react";
 
-export function usePlaceSearch() {
-  const [query, setQuery] = useState("");
+export function usePlaceSearch(initialPlace, initialCoords) {
+  const [query, setQuery] = useState(initialPlace || "");
   const [suggestions, setSuggestions] = useState([]);
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState(
+    initialPlace && initialCoords
+      ? { display_name: initialPlace, lat: initialCoords.lat, lng: initialCoords.lng }
+      : null
+  );
   const [showSuggestions, setShowSuggestions] = useState(false);
   const debounceRef = useRef(null);
+  const skipSearchRef = useRef(!!initialPlace);
 
   useEffect(() => {
+    // Keine Suche wenn bereits ein Ort ausgewählt ist oder initial gesetzt
+    if (selected || skipSearchRef.current) {
+      skipSearchRef.current = false;
+      return;
+    }
+
     if (query.length < 3) {
       setSuggestions([]);
       return;
@@ -31,7 +42,7 @@ export function usePlaceSearch() {
     }, 400);
 
     return () => clearTimeout(debounceRef.current);
-  }, [query]);
+  }, [query, selected]);
 
   function selectPlace(place) {
     setSelected({
@@ -40,6 +51,7 @@ export function usePlaceSearch() {
       lng: parseFloat(place.lon),
     });
     setQuery(place.display_name);
+    setSuggestions([]);
     setShowSuggestions(false);
   }
 
