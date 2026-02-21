@@ -4,10 +4,12 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { createClient } from "@/lib/supabase/client";
+import { useCart } from "@/lib/cart-context";
 
 export function Navbar() {
   const [user, setUser] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { itemCount, setIsOpen: setCartOpen } = useCart();
 
   useEffect(() => {
     const supabase = createClient();
@@ -43,8 +45,24 @@ export function Navbar() {
             </Link>
           </div>
 
-          {/* Rechts: CTA + Hamburger */}
+          {/* Rechts: Cart + CTA + Hamburger */}
           <div className="flex items-center gap-3 ml-auto">
+            {/* Warenkorb-Icon */}
+            <button
+              onClick={() => setCartOpen(true)}
+              className="relative flex h-9 w-9 items-center justify-center rounded-full hover:bg-rose-light/10 transition-colors"
+              aria-label="Warenkorb öffnen"
+            >
+              <svg className="h-5 w-5 text-earth" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
+              </svg>
+              {itemCount > 0 && (
+                <span className="absolute -top-0.5 -right-0.5 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-gold text-[10px] font-bold text-white">
+                  {itemCount}
+                </span>
+              )}
+            </button>
+
             {/* CTA */}
             <Button
               asChild

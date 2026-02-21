@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandLogo } from "@/components/brand-logo";
 
 export function Footer() {
   return (
@@ -7,12 +8,7 @@ export function Footer() {
 
       <div className="mx-auto max-w-5xl">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-0">
-            <img src="/logo.png" alt="Seelensprache Logo" className="h-20 w-20 -my-5" />
-            <span className="text-3xl text-gradient-warm -ml-5 pl-1 pr-1" style={{ fontFamily: 'var(--font-dancing-script)' }}>
-              Seelensprache
-            </span>
-          </div>
+          <BrandLogo size="sm" />
 
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-earth">
             <Link href="/impressum" className="hover:text-gold transition-colors">

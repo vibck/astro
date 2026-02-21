@@ -1,5 +1,6 @@
 import { Inter, Playfair_Display, Dancing_Script } from "next/font/google";
 import { BackgroundHighlights } from "@/components/background-highlights";
+import { CartProviderWrapper } from "@/components/cart-provider-wrapper";
 import "./globals.css";
 
 const inter = Inter({
@@ -35,7 +36,9 @@ export default function RootLayout({ children }) {
     <html lang="de">
       <body className={`${inter.variable} ${playfair.variable} ${dancingScript.variable} antialiased`}>
         <BackgroundHighlights />
-        {children}
+        <CartProviderWrapper>
+          {children}
+        </CartProviderWrapper>
       </body>
     </html>
   );

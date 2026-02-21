@@ -14,6 +14,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
+import { BrandLogo } from "@/components/brand-logo";
 
 export default function SetPasswordPage() {
   const [password, setPassword] = useState("");
@@ -59,12 +60,7 @@ export default function SetPasswordPage() {
         {/* Logo & Title - schwebt über der Card */}
         <div className="text-center relative">
           <div className="absolute bottom-full left-1/2 -translate-x-1/2 w-full pb-4">
-            <Link href="/" className="inline-block">
-              <img src="/logo.png" alt="Seelensprache Logo" className="h-72 w-72 mx-auto -mb-18" />
-              <span className="block -mt-8 text-6xl md:text-7xl text-gradient-warm pl-2" style={{ fontFamily: 'var(--font-dancing-script)' }}>
-                Seelensprache
-              </span>
-            </Link>
+            <BrandLogo size="lg" />
             <p className="text-earth text-sm tracking-wide mt-3">
               Dein Weg zu den Sternen beginnt hier
             </p>

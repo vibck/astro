@@ -35,12 +35,22 @@ export function ReadingCard({ reading }) {
             {statusLabels[displayStatus] || displayStatus}
           </p>
           {hasBirthData && (
-            <p className="text-xs text-muted-foreground mt-1">
-              {reading.birth_name && <>{reading.birth_name} &middot; </>}
-              {reading.birth_place} &middot;{" "}
-              {new Date(reading.birth_date).toLocaleDateString("de-DE")}
-              {reading.birth_time && <> &middot; {reading.birth_time} Uhr</>}
-            </p>
+            <>
+              <p className="text-xs text-muted-foreground mt-1">
+                {reading.birth_name && <>{reading.birth_name} &middot; </>}
+                {reading.birth_place} &middot;{" "}
+                {new Date(reading.birth_date).toLocaleDateString("de-DE")}
+                {reading.birth_time && <> &middot; {reading.birth_time} Uhr</>}
+              </p>
+              {reading.partner_birth_name && (
+                <p className="text-xs text-muted-foreground mt-0.5">
+                  {reading.partner_birth_name} &middot;{" "}
+                  {reading.partner_birth_place} &middot;{" "}
+                  {new Date(reading.partner_birth_date).toLocaleDateString("de-DE")}
+                  {reading.partner_birth_time && <> &middot; {reading.partner_birth_time} Uhr</>}
+                </p>
+              )}
+            </>
           )}
         </div>
 
