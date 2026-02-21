@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -59,12 +59,25 @@ export function SuccessBirthDataForm({ orderId, productType, email }) {
   const [success, setSuccess] = useState(false);
   const [password, setPassword] = useState("");
   const [marketingConsent, setMarketingConsent] = useState(false);
+  const [accountExists, setAccountExists] = useState(null);
 
   const product = getProduct(productType);
   const isPartner = product?.formType === "partner";
 
   const place1 = usePlaceSearch();
   const place2 = usePlaceSearch();
+
+  // Prüfe ob schon ein Account mit dieser E-Mail existiert
+  useEffect(() => {
+    fetch("/api/check-account", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    })
+      .then((res) => res.json())
+      .then((data) => setAccountExists(data.exists))
+      .catch(() => setAccountExists(false));
+  }, [email]);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -163,9 +176,23 @@ export function SuccessBirthDataForm({ orderId, productType, email }) {
   }
 
   return (
-    <Card className="border-border bg-card">
-      <CardContent className="pt-6">
-        <form onSubmit={handleSubmit} className="space-y-5">
+    <>
+      <div className="text-center mb-8">
+        <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gold/10">
+          <svg className="h-8 w-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h1 className="font-serif text-3xl font-bold text-gold">
+          Nur noch ein Schritt!
+        </h1>
+        <p className="text-earth mt-2">
+          Deine Zahlung war erfolgreich – vielen Dank! Jetzt benötigen wir noch deine Geburtsdaten für dein <strong>{product.name}</strong>.
+        </p>
+      </div>
+      <Card className="border-border bg-card">
+        <CardContent className="pt-6">
+          <form onSubmit={handleSubmit} className="space-y-5">
           {/* Person 1 */}
           {isPartner && (
             <p className="text-sm font-semibold text-gold uppercase tracking-wide">Person 1</p>
@@ -262,21 +289,29 @@ export function SuccessBirthDataForm({ orderId, productType, email }) {
           {/* Optional: Account-Erstellung */}
           <hr className="border-border my-2" />
           <div className="space-y-3">
-            <p className="text-sm text-earth">
-              Optional: Erstelle einen Account, um dein Reading im Dashboard zu verfolgen.
-            </p>
-            <div className="space-y-2">
-              <Label htmlFor="password">Passwort (optional)</Label>
-              <Input
-                id="password"
-                type="password"
-                placeholder="Mindestens 6 Zeichen"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                minLength={password ? 6 : undefined}
-                className="bg-surface border-border"
-              />
-            </div>
+            {accountExists ? (
+              <p className="text-sm text-earth">
+                Du hast bereits einen Account. Deine Bestellung wird automatisch deinem Konto zugeordnet.
+              </p>
+            ) : (
+              <>
+                <p className="text-sm text-earth">
+                  Optional: Erstelle einen Account, um dein Reading im Dashboard zu verfolgen.
+                </p>
+                <div className="space-y-2">
+                  <Label htmlFor="password">Passwort (optional)</Label>
+                  <Input
+                    id="password"
+                    type="password"
+                    placeholder="Mindestens 6 Zeichen"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    minLength={password ? 6 : undefined}
+                    className="bg-surface border-border"
+                  />
+                </div>
+              </>
+            )}
 
             <label className="flex items-start gap-2 cursor-pointer">
               <input
@@ -305,5 +340,6 @@ export function SuccessBirthDataForm({ orderId, productType, email }) {
         </form>
       </CardContent>
     </Card>
+    </>
   );
 }

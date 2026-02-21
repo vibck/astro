@@ -21,25 +21,31 @@ export function ReadingCard({ reading }) {
   const product = getProduct(reading.product_type);
   const productName = product?.name || "Reading";
 
+  // Wenn Geburtsdaten vorhanden aber Status noch "paid", zeige korrekten Status
+  const hasBirthData = !!reading.birth_date;
+  const displayStatus = reading.status === "paid" && hasBirthData ? "processing" : reading.status;
+  const needsBirthData = reading.status === "paid" && !hasBirthData;
+
   return (
     <Card className="border-border bg-card">
       <CardContent className="flex items-center justify-between py-5">
         <div>
           <p className="font-medium">{productName}</p>
-          <p className={`text-sm ${statusColors[reading.status] || "text-muted-foreground"}`}>
-            {statusLabels[reading.status] || reading.status}
+          <p className={`text-sm ${statusColors[displayStatus] || "text-muted-foreground"}`}>
+            {statusLabels[displayStatus] || displayStatus}
           </p>
-          {reading.birth_date && (
+          {hasBirthData && (
             <p className="text-xs text-muted-foreground mt-1">
               {reading.birth_name && <>{reading.birth_name} &middot; </>}
               {reading.birth_place} &middot;{" "}
               {new Date(reading.birth_date).toLocaleDateString("de-DE")}
+              {reading.birth_time && <> &middot; {reading.birth_time} Uhr</>}
             </p>
           )}
         </div>
 
         <div>
-          {reading.status === "paid" && (
+          {needsBirthData && (
             <Button
               asChild
               size="sm"

@@ -2,13 +2,14 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="relative py-14 px-6">
+    <footer className="relative py-6 px-6">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-sand to-transparent" />
 
       <div className="mx-auto max-w-5xl">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <span className="font-serif text-xl font-bold text-gradient-warm">
+          <div className="flex items-center gap-0">
+            <img src="/logo.png" alt="Seelensprache Logo" className="h-20 w-20 -my-5" />
+            <span className="text-3xl text-gradient-warm -ml-5 pl-1 pr-1" style={{ fontFamily: 'var(--font-dancing-script)' }}>
               Seelensprache
             </span>
           </div>

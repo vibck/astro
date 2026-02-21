@@ -5,8 +5,8 @@ export const products = {
     subtitle: "Dein kosmischer Fingerabdruck",
     description:
       "Eine vollständige Analyse deines Geburtshoroskops — Sonne, Mond, Aszendent, Planetenaspekte und Häuser. Erfahre, welche Energien dich prägen und wie du dein volles Potenzial entfalten kannst.",
-    price: 4900, // Cent
-    priceDisplay: "49",
+    price: 9900, // Cent
+    priceDisplay: "99",
     formType: "single",
     features: [
       "Vollständige Geburtshoroskop-Analyse",
@@ -22,8 +22,8 @@ export const products = {
     subtitle: "Die Sterne deines Kindes",
     description:
       "Eine liebevolle astrologische Deutung für dein Kind. Verstehe seine Talente, Bedürfnisse und Persönlichkeit — ein wundervolles Geschenk für Eltern, die ihr Kind noch tiefer verstehen möchten.",
-    price: 3900,
-    priceDisplay: "39",
+    price: 7900,
+    priceDisplay: "79",
     formType: "single",
     features: [
       "Kindgerechte Horoskop-Deutung",
@@ -39,8 +39,8 @@ export const products = {
     subtitle: "Die Verbindung zweier Seelen",
     description:
       "Entdecke die kosmische Dynamik zwischen dir und deinem Partner. Erfahre, wie eure Energien zusammenwirken, wo Harmonie und wo Wachstumspotenzial liegt.",
-    price: 5900,
-    priceDisplay: "59",
+    price: 12900,
+    priceDisplay: "129",
     formType: "partner",
     features: [
       "Synastrie-Analyse beider Charts",

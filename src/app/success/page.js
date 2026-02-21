@@ -91,21 +91,6 @@ export default async function SuccessPage({ searchParams }) {
   return (
     <div className="flex min-h-screen items-center justify-center px-6 py-12">
       <div className="w-full max-w-lg">
-        {/* Success header */}
-        <div className="text-center mb-8">
-          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gold/10">
-            <svg className="h-8 w-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
-          </div>
-          <h1 className="font-serif text-3xl font-bold text-gold">
-            Zahlung erfolgreich!
-          </h1>
-          <p className="text-earth mt-2">
-            Vielen Dank für deine Bestellung. Jetzt benötigen wir noch deine Geburtsdaten für dein <strong>{product.name}</strong>.
-          </p>
-        </div>
-
         <SuccessBirthDataForm
           orderId={order.id}
           productType={productType}

@@ -23,23 +23,28 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <div className="mx-auto max-w-6xl px-6 py-4">
-        <nav className="relative flex items-center justify-between rounded-full px-6 py-3 bg-white/80 backdrop-blur-xl border border-rose-light/15 shadow-[0_2px_20px_rgba(196,134,139,0.08)]">
-          {/* Logo */}
-          <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="font-serif text-xl font-bold text-gold cursor-pointer">
-            Seelensprache
+        <nav className="relative flex items-center rounded-full px-4 py-3 bg-white/80 backdrop-blur-xl border border-rose-light/15 shadow-[0_2px_20px_rgba(196,134,139,0.08)]">
+          {/* Logo - links */}
+          <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="flex items-center gap-1 cursor-pointer shrink-0">
+            <img src="/logo.png" alt="Seelensprache Logo" className="h-28 w-28 -my-9 -ml-8" />
+            <span className="text-4xl text-gradient-warm -ml-7 pl-1 pr-1" style={{ fontFamily: 'var(--font-dancing-script)' }}>Seelensprache</span>
           </a>
 
-          {/* Center nav - Desktop */}
-          <div className="hidden md:flex items-center gap-6">
+          {/* Center nav - Desktop (absolut zentriert) */}
+          <div className="hidden md:flex items-center gap-6 absolute left-1/2 -translate-x-1/2">
             <a href="#angebot" className="text-sm text-earth hover:text-gold transition-colors">
               Angebote
             </a>
             <a href="#ablauf" className="text-sm text-earth hover:text-gold transition-colors">
               Ablauf
             </a>
+            <Link href="/ueber-mich" className="text-sm text-earth hover:text-gold transition-colors">
+              Über mich
+            </Link>
           </div>
 
-          <div className="flex items-center gap-3">
+          {/* Rechts: CTA + Hamburger */}
+          <div className="flex items-center gap-3 ml-auto">
             {/* CTA */}
             <Button
               asChild
@@ -73,6 +78,9 @@ export function Navbar() {
             <a href="#ablauf" onClick={handleNavClick} className="text-sm text-earth hover:text-gold transition-colors py-2">
               Ablauf
             </a>
+            <Link href="/ueber-mich" onClick={handleNavClick} className="text-sm text-earth hover:text-gold transition-colors py-2">
+              Über mich
+            </Link>
           </div>
         </div>
       </div>

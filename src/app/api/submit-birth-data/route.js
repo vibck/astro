@@ -120,9 +120,22 @@ export async function POST(request) {
     updateData.partner_birth_coords = partnerBirthCoords;
   }
 
-  // Optional: create user account
+  // Prüfe ob schon ein Account mit dieser E-Mail existiert
+  const orderEmail = email || existingOrder.email;
   let userId = null;
-  if (password && email) {
+
+  const { data: existingUsers } = await supabaseAdmin.auth.admin.listUsers({
+    filter: `email.eq.${orderEmail}`,
+    page: 1,
+    perPage: 1,
+  });
+  const existingUser = existingUsers?.users?.[0];
+
+  if (existingUser) {
+    // Account existiert schon → Order diesem User zuordnen
+    userId = existingUser.id;
+  } else if (password && email) {
+    // Neuen Account erstellen (nur wenn noch keiner existiert)
     const { data: userData, error: authError } = await supabaseAdmin.auth.admin.createUser({
       email,
       password,
@@ -130,29 +143,26 @@ export async function POST(request) {
     });
 
     if (authError) {
-      // User may already exist — that's OK, just skip account creation
-      if (!authError.message.includes("already")) {
-        console.error("Account creation failed:", authError.message);
-        return NextResponse.json(
-          { error: "Account konnte nicht erstellt werden. Bitte versuche es erneut." },
-          { status: 400 }
-        );
-      }
+      console.error("Account creation failed:", authError.message);
+      return NextResponse.json(
+        { error: "Account konnte nicht erstellt werden. Bitte versuche es erneut." },
+        { status: 400 }
+      );
     } else if (userData?.user) {
       userId = userData.user.id;
-
-      // Update marketing consent in profile
-      if (marketingConsent) {
-        await supabaseAdmin
-          .from("profiles")
-          .update({ marketing_consent: true })
-          .eq("id", userId);
-      }
     }
   }
 
   if (userId) {
     updateData.user_id = userId;
+
+    // Marketing consent im Profil speichern
+    if (marketingConsent) {
+      await supabaseAdmin
+        .from("profiles")
+        .update({ marketing_consent: true })
+        .eq("id", userId);
+    }
   }
 
   const { error: updateError } = await supabaseAdmin
