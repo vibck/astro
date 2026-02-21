@@ -11,8 +11,9 @@ export default function ImpressumPage() {
       <div className="mx-auto max-w-3xl relative z-10">
         {/* Navbar */}
         <div className="flex items-center justify-between mb-10">
-          <Link href="/" className="font-serif text-2xl font-bold text-gradient-warm">
-            Seelensprache
+          <Link href="/" className="flex items-center gap-0">
+            <img src="/logo.png" alt="Seelensprache Logo" className="h-28 w-28 -my-9 -ml-8" />
+            <span className="text-4xl text-gradient-warm -ml-7 pl-1 pr-1" style={{ fontFamily: 'var(--font-dancing-script)' }}>Seelensprache</span>
           </Link>
           <Link href="/" className="text-sm text-earth hover:text-gold transition-colors">
             &larr; Zurück zur Startseite

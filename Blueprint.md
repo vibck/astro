@@ -27,9 +27,9 @@
 
 | Produkt | ID | Preis | FormType | Beschreibung |
 |---|---|---|---|---|
-| Seelenspiegel | `seelenspiegel` | 49 € | single | Persönliche Geburtshoroskop-Deutung mit Sonne, Mond, Aszendent und allen Planetenpositionen |
-| Seelenkarte | `seelenkarte` | 39 € | single | Einfühlsame Deutung der Geburtskonstellation deines Kindes |
-| Seelenkompass | `seelenkompass` | 59 € | partner | Synastrie-Analyse eurer Geburtshoroskope mit Stärken und Herausforderungen |
+| Seelenspiegel | `seelenspiegel` | 99 € | single | Persönliche Geburtshoroskop-Deutung mit Sonne, Mond, Aszendent und allen Planetenpositionen |
+| Seelenkarte | `seelenkarte` | 79 € | single | Einfühlsame Deutung der Geburtskonstellation deines Kindes |
+| Seelenkompass | `seelenkompass` | 129 € | partner | Synastrie-Analyse eurer Geburtshoroskope mit Stärken und Herausforderungen |
 
 Zentrale Produkt-Definition in `src/lib/products.js`.
 
@@ -107,13 +107,19 @@ Landingpage → "Jetzt bestellen" → Stripe (nur E-Mail) → /success → Gebur
 ## 7. Seitenstruktur
 
 ### Landingpage (`/`)
-- **Navbar:** Sticky, halbtransparent (`bg-white/80 backdrop-blur-xl`), zeigt "Dashboard" wenn eingeloggt, **Hamburger-Menü auf Mobile**
+- **Navbar:** Sticky, halbtransparent (`bg-white/80 backdrop-blur-xl`), zeigt "Dashboard" wenn eingeloggt, **Hamburger-Menü auf Mobile**, Links: Angebote, Ablauf, Über mich
 - **Hero:** Vollbild mit Aquarell-Händebild, animierte Overlay-Elemente, CTA-Buttons
 - **Angebote:** 3 Produktkarten mit direktem Checkout (kein Login nötig)
 - **Features:** Vorteile der Dienstleistung
 - **Ablauf:** 3-Schritte-Prozess (Bestellen → Geburtsdaten → PDF per E-Mail)
 - **Testimonials:** 3 Kundenstimmen
 - **Footer:** Links, Impressum, Social
+
+### Über mich (`/ueber-mich`)
+- Persönliche Vorstellung von Patricia Beck
+- Foto-Platzhalter (muss noch mit echtem Bild ersetzt werden)
+- Sektionen: Vorstellung, Mein Weg, Meine Arbeit, Was mich antreibt (Platzhalter-Texte)
+- CTA zu den Angeboten
 
 ### Login (`/login`)
 - 3 Modi: Anmelden, Registrieren, Passwort vergessen
@@ -195,6 +201,8 @@ Landingpage → "Jetzt bestellen" → Stripe (nur E-Mail) → /success → Gebur
 - [x] Phase 8: Guest Checkout Umbau (Orders-Tabelle, Success Page, Submit API)
 - [x] Phase 9: Rechtliche Seiten (Impressum, AGB, Datenschutz, Widerruf) mit echten Daten
 - [x] Phase 10: Responsive Design (Mobile Hamburger-Menü, Tablet-Grids, Section-Padding)
+- [x] Phase 10b: "Über mich"-Seite für Patricia, Navbar-Verlinkung
+- [x] Phase 10c: Preisanpassung (Seelenkarte 79€, Seelenspiegel 99€, Seelenkompass 129€)
 - [ ] Phase 11: Supabase Dashboard konfigurieren (Site URL, Redirect URLs für Produktion)
 - [ ] Phase 12: Vercel Deployment & Stripe Live-Keys
 
@@ -220,6 +228,7 @@ src/
 │   ├── agb/page.js              # Allgemeine Geschäftsbedingungen
 │   ├── datenschutz/page.js      # Datenschutzerklärung (DSGVO)
 │   ├── widerruf/page.js         # Widerrufsbelehrung
+│   ├── ueber-mich/page.js      # Über mich (Patricia)
 │   └── api/
 │       ├── checkout/route.js    # Stripe Session erstellen (Guest)
 │       ├── webhook/route.js     # Stripe Webhook (orders Tabelle)

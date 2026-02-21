@@ -26,16 +26,17 @@ export default async function DashboardPage() {
     <div className="min-h-screen px-6 py-12 relative">
       <div className="mx-auto max-w-4xl relative z-10">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-10 gap-4">
-          <div>
-            <Link href="/" className="font-serif text-2xl font-bold text-gradient-warm">
-              Seelensprache
-            </Link>
-            <p className="text-earth text-sm mt-1">{user.email}</p>
-          </div>
-          <div className="flex gap-3">
-            <OrderButton />
-            <LogoutButton />
+        <div className="flex flex-col sm:flex-row items-start justify-between mb-10 gap-4">
+          <Link href="/" className="flex items-center gap-0 mt-2">
+            <img src="/logo.png" alt="Seelensprache Logo" className="h-28 w-28 -my-9 -ml-8" />
+            <span className="text-4xl text-gradient-warm -ml-7 pl-1 pr-1" style={{ fontFamily: 'var(--font-dancing-script)' }}>Seelensprache</span>
+          </Link>
+          <div className="flex flex-col items-end gap-1 mt-2">
+            <div className="flex items-center gap-3">
+              <OrderButton />
+              <LogoutButton />
+            </div>
+            <p className="text-earth text-sm">{user.email}</p>
           </div>
         </div>
 
@@ -76,15 +77,12 @@ export default async function DashboardPage() {
               Astrologie-Reading und entdecke, was die Sterne für dich bereithalten.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <OrderButton />
-              <Link
-                href="/#angebot"
-                className="inline-flex items-center justify-center h-10 px-6 rounded-full border border-gold/30 text-gold text-sm hover:bg-gold/5 transition-colors"
-              >
-                Angebote ansehen
-              </Link>
-            </div>
+            <Link
+              href="/#angebot"
+              className="inline-flex items-center justify-center h-10 px-6 rounded-full bg-gold text-white text-sm hover:bg-gold-light transition-colors glow-gold-warm"
+            >
+              Angebote ansehen
+            </Link>
           </div>
         )}
       </div>

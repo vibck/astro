@@ -255,16 +255,19 @@ function LoginContent() {
       <div className="pointer-events-none absolute bottom-[15%] left-[5%] h-[300px] w-[300px] bg-rose/[0.05] rounded-full blur-[110px] animate-breathe animation-delay-2000" />
 
       <div className="w-full max-w-md relative z-10">
-        {/* Logo & Title */}
-        <div className="text-center mb-10">
-          <Link href="/" className="inline-block mb-4">
-            <span className="font-serif text-5xl md:text-6xl font-bold text-gradient-warm">
-              Seelensprache
-            </span>
-          </Link>
-          <p className="text-earth text-sm tracking-wide">
-            Dein Weg zu den Sternen beginnt hier
-          </p>
+        {/* Logo & Title - schwebt über der Card ohne Platz einzunehmen */}
+        <div className="text-center relative">
+          <div className="absolute bottom-full left-1/2 -translate-x-1/2 w-full pb-4">
+            <Link href="/" className="inline-block">
+              <img src="/logo.png" alt="Seelensprache Logo" className="h-72 w-72 mx-auto -mb-18" />
+              <span className="block -mt-8 text-6xl md:text-7xl text-gradient-warm pl-2" style={{ fontFamily: 'var(--font-dancing-script)' }}>
+                Seelensprache
+              </span>
+            </Link>
+            <p className="text-earth text-sm tracking-wide mt-3">
+              Dein Weg zu den Sternen beginnt hier
+            </p>
+          </div>
         </div>
 
         <Card className="glass-warm-strong rounded-3xl border-sand shadow-[0_8px_50px_rgba(196,134,139,0.12)]">

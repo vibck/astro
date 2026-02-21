@@ -29,6 +29,11 @@ export async function POST(request) {
     mode: "payment",
     success_url: `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/success?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/`,
+    custom_text: {
+      submit: {
+        message: "Hinweis: Nach der Bezahlung benötigen wir deine genauen Geburtsdaten (Datum, Uhrzeit und Ort). Bitte halte diese Informationen bereit.",
+      },
+    },
     metadata: {
       product_type: product,
     },
