@@ -127,7 +127,7 @@ export function CartSidebar() {
               <div className="flex items-center justify-between">
                 <span className="text-earth font-medium">Gesamt</span>
                 <span className="font-serif text-2xl font-bold text-gradient-warm">
-                  {(total / 100).toFixed(0)}€
+                  {(total / 100).toFixed(2).replace('.', ',')}€
                 </span>
               </div>
               <Button
