@@ -54,12 +54,18 @@ export default function DatenschutzPage() {
                 Unsere Website wird bei <strong>Vercel Inc.</strong> (440 N Barranca Ave #4133,
                 Covina, CA 91723, USA) gehostet. Vercel verarbeitet Zugriffsdaten (IP-Adresse,
                 Zeitpunkt des Zugriffs, angeforderte Seite) in Server-Logfiles. Die Verarbeitung
-                erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an
-                einer sicheren und effizienten Bereitstellung).
+                erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse
+                liegt in der technisch fehlerfreien Bereitstellung und Absicherung der Website
+                gegen Missbrauch sowie der Optimierung der Ladezeiten.
               </p>
               <p className="mt-2">
                 Für die Datenübermittlung in die USA stützen wir uns auf die
                 Standardvertragsklauseln der EU-Kommission sowie das EU-US Data Privacy Framework.
+                Wir weisen darauf hin, dass in den USA ein Datenschutzniveau besteht, das nach
+                europäischen Maßstäben nicht in allen Bereichen dem der EU entspricht. Es besteht
+                insbesondere das Risiko, dass US-Behörden auf Daten zugreifen können, ohne dass
+                Betroffene hierüber informiert werden. Durch den Einsatz der genannten
+                Schutzmaßnahmen sollen ein angemessenes Datenschutzniveau gewährleisten.
               </p>
             </section>
 
@@ -105,6 +111,11 @@ export default function DatenschutzPage() {
                   stripe.com/de/privacy
                 </a>
               </p>
+              <p className="mt-2">
+                Stripe hat seinen Sitz in den USA. Die Datenübermittlung erfolgt auf Grundlage
+                der Standardvertragsklauseln der EU-Kommission sowie des EU-US Data Privacy
+                Frameworks. Es gelten die unter Abschnitt 3 genannten Hinweise zum Drittlandtransfer.
+              </p>
             </section>
 
             {/* 6. Ortssuche */}
@@ -122,35 +133,99 @@ export default function DatenschutzPage() {
               </p>
             </section>
 
-            {/* 7. Cookies & Session */}
+            {/* 7. E-Mail-Versand */}
             <section>
-              <h2 className="font-serif text-lg text-gold mb-2">7. Cookies &amp; Session-Speicherung</h2>
+              <h2 className="font-serif text-lg text-gold mb-2">7. E-Mail-Versand (Resend)</h2>
               <p>
-                Wir verwenden ausschließlich technisch notwendige Cookies für die
-                Authentifizierung (Session-Cookie). Es werden keine Tracking-, Analyse- oder
+                Für den Versand von E-Mails (Bestellbestätigungen, Bereitstellung der Readings)
+                nutzen wir <strong>Resend Inc.</strong> (San Francisco, CA, USA). Dabei wird Ihre
+                E-Mail-Adresse an Resend übermittelt.
+              </p>
+              <p className="mt-2">
+                Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung).
+                Datenschutzhinweise von Resend:{" "}
+                <a
+                  href="https://resend.com/legal/privacy-policy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gold hover:text-gold-light underline transition-colors"
+                >
+                  resend.com/legal/privacy-policy
+                </a>
+              </p>
+              <p className="mt-2">
+                Resend hat seinen Sitz in den USA. Die Datenübermittlung erfolgt auf Grundlage
+                der Standardvertragsklauseln der EU-Kommission sowie des EU-US Data Privacy
+                Frameworks. Es gelten die unter Abschnitt 3 genannten Hinweise zum Drittlandtransfer.
+              </p>
+            </section>
+
+            {/* 8. Cookies & Session */}
+            <section>
+              <h2 className="font-serif text-lg text-gold mb-2">8. Cookies &amp; Session-Speicherung</h2>
+              <p>
+                Wir verwenden ausschließlich technisch notwendige Cookies (Session-Cookies zur Authentifizierung). Es werden keine Tracking-, Analyse- oder
                 Werbe-Cookies eingesetzt.
               </p>
               <p className="mt-2">
-                Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der
-                Funktionsfähigkeit der Website) sowie § 25 Abs. 2 TDDDG (technisch erforderlich).
+                Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO sowie § 25 Abs. 2 TDDDG. Unser
+                berechtigtes Interesse liegt in der Ermöglichung der Anmeldefunktion und der
+                sicheren Zuordnung von Bestellungen zum jeweiligen Nutzerkonto.
               </p>
             </section>
 
-            {/* 8. Zwecke der Verarbeitung */}
+            {/* 9. Zwecke der Verarbeitung */}
             <section>
-              <h2 className="font-serif text-lg text-gold mb-2">8. Zwecke der Verarbeitung</h2>
-              <ul className="list-disc list-inside space-y-1 ml-2">
-                <li>Bereitstellung und Verbesserung unseres Angebots</li>
-                <li>Erstellung personalisierter Astrologie-Readings</li>
-                <li>Abwicklung von Zahlungen</li>
-                <li>Zustellung der Readings per E-Mail/Download</li>
-                <li>Benutzerkontenverwaltung</li>
+              <h2 className="font-serif text-lg text-gold mb-2">9. Zwecke und Rechtsgrundlagen</h2>
+              <ul className="list-disc list-inside space-y-2 ml-2">
+                <li>
+                  <strong>Erstellung personalisierter Astrologie-Readings</strong> (Geburtsdaten, E-Mail)<br />
+                  <span className="text-earth/70">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)</span>
+                </li>
+                <li>
+                  <strong>Abwicklung von Zahlungen</strong> (Zahlungsdaten via Stripe)<br />
+                  <span className="text-earth/70">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)</span>
+                </li>
+                <li>
+                  <strong>Zustellung der Readings per E-Mail</strong> (E-Mail-Adresse via Resend)<br />
+                  <span className="text-earth/70">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)</span>
+                </li>
+                <li>
+                  <strong>Benutzerkontenverwaltung</strong> (E-Mail, Passwort via Supabase)<br />
+                  <span className="text-earth/70">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)</span>
+                </li>
+                <li>
+                  <strong>Bereitstellung der Website</strong> (IP-Adresse, Zugriffsdaten via Vercel)<br />
+                  <span className="text-earth/70">Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse)</span>
+                </li>
+                <li>
+                  <strong>Session-Verwaltung</strong> (technisch notwendige Cookies)<br />
+                  <span className="text-earth/70">Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse) sowie § 25 Abs. 2 TDDDG</span>
+                </li>
               </ul>
             </section>
 
-            {/* 9. Speicherdauer */}
+            {/* 10. Pflicht zur Bereitstellung */}
             <section>
-              <h2 className="font-serif text-lg text-gold mb-2">9. Speicherdauer</h2>
+              <h2 className="font-serif text-lg text-gold mb-2">10. Pflicht zur Bereitstellung der Daten</h2>
+              <p>
+                Die Bereitstellung folgender Daten ist zur Vertragserfüllung erforderlich:
+              </p>
+              <ul className="list-disc list-inside mt-2 space-y-1 ml-2">
+                <li><strong>E-Mail-Adresse</strong> — für die Zustellung des Readings und Kontoverwaltung</li>
+                <li><strong>Geburtsdaten</strong> (Datum, Uhrzeit, Ort) — für die Erstellung des personalisierten Readings</li>
+                <li><strong>Zahlungsdaten</strong> — für die Abwicklung der Bezahlung über Stripe</li>
+              </ul>
+              <p className="mt-2">
+                Ohne diese Angaben kann der Vertrag nicht erfüllt werden. Die Erstellung eines
+                Benutzerkontos mit Passwort ist optional und dient lediglich dem späteren Zugriff
+                auf bestellte Readings.
+              </p>
+            </section>
+
+            {/* 11. Speicherdauer */}
+            <section>
+              <h2 className="font-serif text-lg text-gold mb-2">11. Speicherdauer</h2>
               <p>
                 Personenbezogene Daten werden gelöscht, sobald der Zweck der Speicherung entfällt.
                 Für Vertragsdaten gilt die gesetzliche Aufbewahrungsfrist von bis zu 10 Jahren
@@ -161,7 +236,7 @@ export default function DatenschutzPage() {
 
             {/* 10. Rechte der Betroffenen */}
             <section>
-              <h2 className="font-serif text-lg text-gold mb-2">10. Ihre Rechte</h2>
+              <h2 className="font-serif text-lg text-gold mb-2">12. Ihre Rechte</h2>
               <p>Sie haben jederzeit das Recht auf:</p>
               <ul className="list-disc list-inside mt-2 space-y-1 ml-2">
                 <li><strong>Auskunft</strong> über Ihre gespeicherten Daten (Art. 15 DSGVO)</li>
@@ -178,7 +253,16 @@ export default function DatenschutzPage() {
 
             {/* 11. Beschwerderecht */}
             <section>
-              <h2 className="font-serif text-lg text-gold mb-2">11. Beschwerderecht bei einer Aufsichtsbehörde</h2>
+              <h2 className="font-serif text-lg text-gold mb-2">13. Automatisierte Entscheidungsfindung</h2>
+              <p>
+                Es findet keine automatisierte Entscheidungsfindung einschließlich Profiling
+                gemäß Art. 22 DSGVO statt. Alle Readings werden manuell und persönlich erstellt.
+              </p>
+            </section>
+
+            {/* 14. Beschwerderecht */}
+            <section>
+              <h2 className="font-serif text-lg text-gold mb-2">14. Beschwerderecht bei einer Aufsichtsbehörde</h2>
               <p>
                 Wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer personenbezogenen Daten
                 gegen die DSGVO verstößt, haben Sie das Recht, Beschwerde bei einer
@@ -189,7 +273,7 @@ export default function DatenschutzPage() {
             {/* Stand */}
             <section className="pt-4 border-t border-sand/50">
               <p className="text-earth/60 text-xs">
-                Stand: 17. Februar 2026
+                Stand: 22. Februar 2026
               </p>
             </section>
           </div>
