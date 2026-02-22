@@ -42,7 +42,7 @@ function emailLayout(content) {
               <table width="100%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
                   <td align="center">
-                    <img src="${siteUrl}/logo.png" alt="Seelensprache" width="140" height="140" style="display:block;margin:0 auto;" />
+                    <img src="${siteUrl}/logo.png" alt="Seelensprache" width="260" height="260" style="display:block;margin:0 auto;" />
                   </td>
                 </tr>
                 <tr>
