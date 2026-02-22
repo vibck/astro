@@ -59,14 +59,17 @@ export function getProduct(id) {
 // Produkt-Typen aus Stripe Session Metadata auslesen
 // Unterstützt neues Format (JSON Array) und altes Format (einzelner String)
 export function getProductTypesFromMetadata(metadata) {
+  let types;
   if (metadata?.product_types) {
     try {
-      return JSON.parse(metadata.product_types);
+      types = JSON.parse(metadata.product_types);
     } catch {
-      return [metadata.product_type];
+      types = [metadata.product_type];
     }
+  } else {
+    types = [metadata?.product_type];
   }
-  return [metadata?.product_type];
+  return types.filter(Boolean);
 }
 
 export const productList = Object.values(products);
