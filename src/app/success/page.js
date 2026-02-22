@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { getStripe } from "@/lib/stripe";
-import { getProduct } from "@/lib/products";
+import { getProduct, getProductTypesFromMetadata } from "@/lib/products";
 import { getSupabaseAdmin } from "@/lib/supabase/admin";
 import { SuccessMultiForm } from "@/components/success-multi-form";
 import { Button } from "@/components/ui/button";
@@ -27,17 +27,7 @@ export default async function SuccessPage({ searchParams }) {
 
   const email = session.customer_details.email;
 
-  // Produkt-Typen aus Metadata lesen
-  let productTypes;
-  if (session.metadata.product_types) {
-    try {
-      productTypes = JSON.parse(session.metadata.product_types);
-    } catch {
-      productTypes = [session.metadata.product_type];
-    }
-  } else {
-    productTypes = [session.metadata.product_type];
-  }
+  const productTypes = getProductTypesFromMetadata(session.metadata);
 
   // Alle Produkte validieren
   if (productTypes.some((pt) => !getProduct(pt))) {
@@ -46,27 +36,21 @@ export default async function SuccessPage({ searchParams }) {
 
   const supabaseAdmin = getSupabaseAdmin();
 
-  // Orders für diese Session anlegen (falls Webhook noch nicht gefeuert hat)
-  for (let i = 0; i < productTypes.length; i++) {
-    // Erst prüfen ob Order schon existiert
-    const { data: existing } = await supabaseAdmin
-      .from("orders")
-      .select("id")
-      .eq("stripe_session_id", session_id)
-      .eq("cart_item_index", i)
-      .maybeSingle();
+  // Prüfen welche Orders schon existieren (ein Query statt N)
+  const { data: existingOrders } = await supabaseAdmin
+    .from("orders")
+    .select("cart_item_index")
+    .eq("stripe_session_id", session_id);
 
-    if (!existing) {
-      await supabaseAdmin
-        .from("orders")
-        .insert({
-          email,
-          product_type: productTypes[i],
-          status: "paid",
-          stripe_session_id: session_id,
-          cart_item_index: i,
-        });
-    }
+  const existingIndices = new Set((existingOrders || []).map((o) => o.cart_item_index));
+
+  // Fehlende Orders in einem Batch anlegen (falls Webhook noch nicht gefeuert hat)
+  const missingOrders = productTypes
+    .map((pt, i) => ({ email, product_type: pt, status: "paid", stripe_session_id: session_id, cart_item_index: i }))
+    .filter((o) => !existingIndices.has(o.cart_item_index));
+
+  if (missingOrders.length > 0) {
+    await supabaseAdmin.from("orders").insert(missingOrders);
   }
 
   // Alle Orders für diese Session laden
