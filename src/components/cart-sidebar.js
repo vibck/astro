@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 export function CartSidebar() {
   const { items, removeItem, clearCart, isOpen, setIsOpen, itemCount } = useCart();
   const [checkoutLoading, setCheckoutLoading] = useState(false);
+  const [widerrufAccepted, setWiderrufAccepted] = useState(false);
   const panelRef = useRef(null);
 
   // ESC zum Schließen
@@ -130,10 +131,27 @@ export function CartSidebar() {
                   {(total / 100).toFixed(2).replace('.', ',')}€
                 </span>
               </div>
+              <label className="flex items-start gap-3 cursor-pointer group">
+                <input
+                  type="checkbox"
+                  checked={widerrufAccepted}
+                  onChange={(e) => setWiderrufAccepted(e.target.checked)}
+                  className="mt-0.5 h-4 w-4 shrink-0 rounded border-earth/30 text-gold focus:ring-gold/30 accent-gold cursor-pointer"
+                />
+                <span className="text-xs text-earth/80 leading-relaxed group-hover:text-earth transition-colors">
+                  Ich stimme ausdrücklich zu, dass mit der Erstellung meines personalisierten
+                  Readings (digitaler Inhalt) vor Ablauf der Widerrufsfrist begonnen wird.
+                  Ich habe zur Kenntnis genommen, dass ich dadurch mein{" "}
+                  <a href="/widerruf" target="_blank" className="text-gold hover:text-gold-light underline">
+                    Widerrufsrecht
+                  </a>{" "}
+                  verliere.
+                </span>
+              </label>
               <Button
                 onClick={handleCheckout}
-                disabled={checkoutLoading}
-                className="w-full rounded-full bg-gold text-white hover:bg-gold-light glow-gold-warm text-base py-6"
+                disabled={checkoutLoading || !widerrufAccepted}
+                className="w-full rounded-full bg-gold text-white hover:bg-gold-light glow-gold-warm text-base py-6 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {checkoutLoading ? "Wird geladen..." : "Zur Kasse"}
               </Button>

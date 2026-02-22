@@ -59,6 +59,12 @@ export default function AGBPage() {
                 (2) Die Readings dienen der Unterhaltung und Selbstreflexion. Sie stellen keine
                 medizinische, psychologische, rechtliche oder finanzielle Beratung dar.
               </p>
+              <p className="mt-2">
+                (3) Der Kunde ist verpflichtet, korrekte Geburtsdaten (Datum, Uhrzeit und Ort)
+                anzugeben. Für fehlerhafte Readings aufgrund falscher oder unvollständiger Angaben
+                übernimmt der Anbieter keine Haftung. Ein Anspruch auf Neuanfertigung oder
+                Erstattung besteht in diesem Fall nicht.
+              </p>
             </section>
 
             {/* § 3 Vertragsschluss */}
@@ -75,7 +81,7 @@ export default function AGBPage() {
               </p>
               <p className="mt-2">
                 (3) Der Vertrag kommt zustande, wenn der Anbieter die Bestellung durch Zusendung
-                einer Auftragsbestätigung per E-Mail annimmt oder das Reading bereitstellt.
+                einer Auftragsbestätigung per E-Mail annimmt oder das Reading per E-Mail bereitstellt.
               </p>
             </section>
 
@@ -83,8 +89,8 @@ export default function AGBPage() {
             <section>
               <h2 className="font-serif text-lg text-gold mb-2">§ 4 Preise und Zahlung</h2>
               <p>
-                (1) Alle auf der Website genannten Preise sind Endpreise. Der Anbieter ist
-                Kleinunternehmer gemäß § 19 UStG und weist keine Umsatzsteuer aus.
+                (1) Alle auf der Website genannten Preise sind Endpreise. Gemäß § 19 UStG wird
+                keine Umsatzsteuer berechnet.
               </p>
               <p className="mt-2">
                 (2) Die Zahlung erfolgt über den Zahlungsdienstleister Stripe. Der Kaufpreis ist
@@ -100,12 +106,9 @@ export default function AGBPage() {
             <section>
               <h2 className="font-serif text-lg text-gold mb-2">§ 5 Lieferung</h2>
               <p>
-                (1) Nach Zahlungseingang und Erstellung des Readings wird das PDF-Dokument dem
-                Kunden per E-Mail zugestellt und/oder im Kundenkonto zum Download bereitgestellt.
-              </p>
-              <p className="mt-2">
-                (2) Die Lieferzeit hängt von der Bearbeitungsdauer ab. Der Anbieter bemüht sich um
-                eine zeitnahe Bereitstellung.
+                (1) Die Lieferung erfolgt nach Zahlungseingang innerhalb von 3–5 Werktagen.
+                Das PDF-Dokument wird dem Kunden per E-Mail zugestellt und im Kundenkonto zum
+                Download bereitgestellt.
               </p>
             </section>
 
@@ -113,20 +116,13 @@ export default function AGBPage() {
             <section>
               <h2 className="font-serif text-lg text-gold mb-2">§ 6 Widerrufsrecht</h2>
               <p>
-                (1) Für das Widerrufsrecht gelten die gesetzlichen Regelungen. Die ausführliche
-                Widerrufsbelehrung finden Sie unter{" "}
+                Für das Widerrufsrecht gelten die gesetzlichen Regelungen. Die ausführliche
+                Widerrufsbelehrung einschließlich der Bedingungen für das vorzeitige Erlöschen
+                des Widerrufsrechts finden Sie unter{" "}
                 <Link href="/widerruf" className="text-gold hover:text-gold-light underline transition-colors">
                   Widerrufsbelehrung
                 </Link>
                 .
-              </p>
-              <p className="mt-2">
-                (2) Das Widerrufsrecht besteht nicht bei Verträgen zur Lieferung von Waren, die
-                nicht vorgefertigt sind und für deren Herstellung eine individuelle Auswahl oder
-                Bestimmung durch den Verbraucher maßgeblich ist oder die eindeutig auf die
-                persönlichen Bedürfnisse des Verbrauchers zugeschnitten sind (§ 312g Abs. 2 Nr. 1
-                BGB). Personalisierte Astrologie-Readings sind individuell auf die Geburtsdaten des
-                Kunden zugeschnittene Produkte.
               </p>
             </section>
 
@@ -152,9 +148,10 @@ export default function AGBPage() {
               <h2 className="font-serif text-lg text-gold mb-2">§ 8 Urheberrecht</h2>
               <p>
                 Die erstellten Readings sind urheberrechtlich geschützt. Der Kunde erhält ein
-                einfaches, nicht übertragbares Nutzungsrecht für den persönlichen Gebrauch. Eine
-                Vervielfältigung, Weitergabe oder Veröffentlichung — auch auszugsweise — ist ohne
-                ausdrückliche Zustimmung des Anbieters nicht gestattet.
+                einfaches Nutzungsrecht für den privaten Gebrauch. Das Reading darf gespeichert,
+                ausgedruckt und im privaten Umfeld geteilt werden. Eine kommerzielle Nutzung,
+                Veröffentlichung oder Weiterverbreitung ist ohne ausdrückliche Zustimmung des
+                Anbieters nicht gestattet.
               </p>
             </section>
 
@@ -180,12 +177,16 @@ export default function AGBPage() {
                   https://ec.europa.eu/consumers/odr/
                 </a>
               </p>
+              <p className="mt-2">
+                (4) Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
+                Verbraucherschlichtungsstelle teilzunehmen.
+              </p>
             </section>
 
             {/* Stand */}
             <section className="pt-4 border-t border-sand/50">
               <p className="text-earth/60 text-xs">
-                Stand: 17. Februar 2026
+                Stand: 22. Februar 2026
               </p>
             </section>
           </div>
