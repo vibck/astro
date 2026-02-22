@@ -52,7 +52,7 @@ export default function SetPasswordPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center px-6 relative overflow-hidden">
+    <div className="flex min-h-screen items-center justify-center px-6 pt-52 pb-12 relative overflow-hidden">
       <div className="pointer-events-none absolute top-[15%] right-[5%] h-[350px] w-[350px] bg-gold/[0.04] rounded-full blur-[130px] animate-breathe" />
       <div className="pointer-events-none absolute bottom-[15%] left-[5%] h-[300px] w-[300px] bg-rose/[0.05] rounded-full blur-[110px] animate-breathe animation-delay-2000" />
 
