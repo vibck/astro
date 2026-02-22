@@ -38,7 +38,7 @@ export default function AGBPage() {
                 (nachfolgend „Anbieter")
               </p>
               <p className="mt-2">
-                und dem Kunden (nachfolgend „Kunde") über die Website seelensprache.com
+                und dem Kunden (nachfolgend „Kunde") über die Website seelensprache-astro.de
                 (nachfolgend „Website").
               </p>
               <p className="mt-2">

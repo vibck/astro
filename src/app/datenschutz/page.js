@@ -32,7 +32,7 @@ export default function DatenschutzPage() {
                 Patricia Beck<br />
                 Sandberg 20<br />
                 27612 Loxstedt<br />
-                E-Mail: kontakt@seelensprache.com
+                E-Mail: <a href="mailto:kontakt@seelensprache-astro.de" className="text-gold hover:text-gold-light underline transition-colors">kontakt@seelensprache-astro.de</a>
               </p>
             </section>
 
@@ -172,7 +172,7 @@ export default function DatenschutzPage() {
                 <li><strong>Widerspruch</strong> gegen die Verarbeitung (Art. 21 DSGVO)</li>
               </ul>
               <p className="mt-2">
-                Zur Ausübung Ihrer Rechte wenden Sie sich an: kontakt@seelensprache.com
+                Zur Ausübung Ihrer Rechte wenden Sie sich an: <a href="mailto:kontakt@seelensprache-astro.de" className="text-gold hover:text-gold-light underline transition-colors">kontakt@seelensprache-astro.de</a>
               </p>
             </section>
 
