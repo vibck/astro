@@ -183,8 +183,8 @@ export async function POST(request) {
   if (updatedOrder) {
     const product = getProduct(updatedOrder.product_type);
     const productName = product?.name || "Reading";
-    // Fire-and-forget — Fehler werden geloggt aber blockieren nicht die Response
-    sendNewOrderNotification(updatedOrder, productName);
+    // Await — auf Vercel Serverless muss der Call vor der Response abgeschlossen sein
+    await sendNewOrderNotification(updatedOrder, productName);
   }
 
   return NextResponse.json({ success: true });
