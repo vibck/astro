@@ -19,7 +19,7 @@ const colors = {
   textMuted: "#9B7B80",
 };
 
-// Gemeinsames HTML-Layout — warm, persönlich, passend zur Website
+// Gemeinsames HTML-Layout — kompakterer Header
 function emailLayout(content) {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://seelensprache-astro.de";
 
@@ -29,52 +29,42 @@ function emailLayout(content) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 </head>
 <body style="margin:0;padding:0;background-color:${colors.cream};font-family:Georgia,'Times New Roman',serif;">
-  <table width="100%" cellpadding="0" cellspacing="0" style="background-color:${colors.cream};padding:40px 20px;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color:${colors.cream};padding:20px 10px;">
     <tr>
       <td align="center">
-        <table width="600" cellpadding="0" cellspacing="0" style="background-color:#ffffff;border-radius:24px;overflow:hidden;box-shadow:0 8px 40px rgba(196,134,139,0.15);">
-          <!-- Header -->
+        <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;background-color:#ffffff;border-radius:24px;overflow:hidden;box-shadow:0 8px 40px rgba(196,134,139,0.15);">
+
           <tr>
-            <td style="background:${colors.creamDark};padding:8px 0 10px;" align="center">
-              <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <td align="center">
-                    <img src="${siteUrl}/logo.png" alt="Seelensprache" width="260" height="260" style="display:block;margin:0 auto;" />
-                  </td>
-                </tr>
-                <tr>
-                  <td align="center">
-                    <p style="margin:0;font-size:34px;font-family:'Brush Script MT','Segoe Script',cursive;color:${colors.rose};letter-spacing:2px;">
-                      Seelensprache
-                    </p>
-                  </td>
-                </tr>
-              </table>
+            <td style="background-color:${colors.creamDark};padding:30px 20px 20px 20px;" align="center">
+                <img src="${siteUrl}/logo.png" alt="Seelensprache" width="150" style="display:block; border:0; width:150px; max-width:150px;" />
+
+                <p style="margin:10px 0 0 0; font-size:32px; font-family:'Brush Script MT','Segoe Script',cursive; color:${colors.rose}; line-height:1; letter-spacing:1px;">
+                  Seelensprache
+                </p>
             </td>
           </tr>
-          <!-- Rosé Trennlinie -->
+
           <tr>
-            <td style="height:3px;background:linear-gradient(90deg,transparent,${colors.blush},${colors.gold},${colors.blush},transparent);"></td>
+            <td style="height:2px; background:linear-gradient(90deg,transparent,${colors.blush},${colors.gold},${colors.blush},transparent);"></td>
           </tr>
-          <!-- Content -->
+
           <tr>
-            <td style="padding:40px 44px;">
+            <td style="padding:40px 40px;">
               ${content}
             </td>
           </tr>
-          <!-- Footer -->
+
           <tr>
-            <td style="padding:28px 44px;background-color:${colors.creamDark};text-align:center;">
-              <p style="margin:0 0 4px;color:${colors.gold};font-size:16px;font-style:italic;">
+            <td style="padding:30px 40px; background-color:${colors.creamDark}; text-align:center;">
+              <p style="margin:0 0 5px; color:${colors.gold}; font-size:16px; font-style:italic;">
                 Alles Liebe & sternenklare Grüße
               </p>
-              <p style="margin:0;color:${colors.earth};font-size:14px;">
+              <p style="margin:0; color:${colors.earth}; font-size:14px;">
                 Patricia von Seelensprache
               </p>
-              <p style="margin:12px 0 0;font-size:18px;letter-spacing:4px;color:${colors.blush};">&#9734; &#9734; &#9734;</p>
+              <p style="margin:15px 0 0; font-size:18px; letter-spacing:4px; color:${colors.blush};">&#9734; &#9734; &#9734;</p>
             </td>
           </tr>
         </table>
