@@ -37,7 +37,7 @@ export default function ImpressumPage() {
             <section>
               <h2 className="font-serif text-lg text-gold mb-2">Kontakt</h2>
               <p>
-                E-Mail: kontakt@seelensprache.com
+                E-Mail: <a href="mailto:kontakt@seelensprache-astro.de" className="text-gold hover:text-gold-light underline transition-colors">kontakt@seelensprache-astro.de</a>
               </p>
             </section>
 
