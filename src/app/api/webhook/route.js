@@ -31,7 +31,7 @@ export async function POST(request) {
 
     const productTypes = getProductTypesFromMetadata(session.metadata);
 
-    // Alle Orders in einem Batch erstellen
+    // Alle Orders in einem Batch erstellen (ignoreduplicate via onConflict)
     const orderRows = productTypes.map((pt, i) => ({
       email,
       product_type: pt,
@@ -40,19 +40,16 @@ export async function POST(request) {
       cart_item_index: i,
     }));
 
-    const { error } = await supabaseAdmin.from("orders").insert(orderRows);
+    const { error } = await supabaseAdmin
+      .from("orders")
+      .upsert(orderRows, { onConflict: "stripe_session_id,cart_item_index", ignoreDuplicates: true });
 
     if (error) {
-      // Falls Orders schon existieren (z.B. durch Success Page), ignorieren
-      if (error.code === "23505") {
-        console.log(`Orders already exist for session ${session.id}`);
-      } else {
-        console.error("Failed to insert orders:", error);
-        return NextResponse.json(
-          { error: "Database error" },
-          { status: 500 }
-        );
-      }
+      console.error("Failed to upsert orders:", error);
+      return NextResponse.json(
+        { error: "Database error" },
+        { status: 500 }
+      );
     }
   }
 
