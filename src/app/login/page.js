@@ -126,7 +126,7 @@ function LoginContent() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center px-6 relative overflow-hidden">
+    <div className="flex min-h-screen items-center justify-center px-6 pt-52 pb-12 relative overflow-hidden">
       {/* Animated star field background */}
       <div className="pointer-events-none absolute inset-0">
         {/* Scattered twinkling stars */}
