@@ -2,7 +2,7 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const FROM_EMAIL = "Seelensprache <onboarding@resend.dev>";
+const FROM_EMAIL = "Seelensprache <noreply@seelensprache-astro.de>";
 
 // Farben passend zur Website
 const colors = {
@@ -21,7 +21,7 @@ const colors = {
 
 // Gemeinsames HTML-Layout — warm, persönlich, passend zur Website
 function emailLayout(content) {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://seelensprache.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://seelensprache-astro.de";
 
   return `
 <!DOCTYPE html>
@@ -111,7 +111,7 @@ export async function sendNewOrderNotification(order, productName) {
     <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:28px;">
       <tr>
         <td align="center">
-          <a href="${process.env.NEXT_PUBLIC_SITE_URL || "https://seelensprache.com"}/admin" style="display:inline-block;background:${colors.gold};color:#ffffff;text-decoration:none;padding:14px 32px;border-radius:50px;font-size:15px;letter-spacing:0.5px;">
+          <a href="${process.env.NEXT_PUBLIC_SITE_URL || "https://seelensprache-astro.de"}/admin" style="display:inline-block;background:${colors.gold};color:#ffffff;text-decoration:none;padding:14px 32px;border-radius:50px;font-size:15px;letter-spacing:0.5px;">
             Im Admin-Dashboard öffnen
           </a>
         </td>
@@ -137,7 +137,7 @@ export async function sendNewOrderNotification(order, productName) {
 export async function sendReadingCompleteEmail(email, productName, pdfUrl) {
   if (!process.env.RESEND_API_KEY) return;
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://seelensprache.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://seelensprache-astro.de";
 
   const html = emailLayout(`
     <p style="color:${colors.goldLight};font-size:14px;letter-spacing:2px;text-transform:uppercase;margin:0 0 8px;text-align:center;">

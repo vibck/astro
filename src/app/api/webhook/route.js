@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getStripe } from "@/lib/stripe";
 import { getSupabaseAdmin } from "@/lib/supabase/admin";
+import { getProductTypesFromMetadata } from "@/lib/products";
 
 export async function POST(request) {
   const body = await request.text();
@@ -28,41 +29,29 @@ export async function POST(request) {
     const supabaseAdmin = getSupabaseAdmin();
     const email = session.customer_details.email;
 
-    // Produkt-Typen auslesen: neues Format (JSON Array) oder altes Format (einzelner String)
-    let productTypes;
-    if (session.metadata.product_types) {
-      try {
-        productTypes = JSON.parse(session.metadata.product_types);
-      } catch {
-        productTypes = [session.metadata.product_type];
-      }
-    } else {
-      productTypes = [session.metadata.product_type];
-    }
+    const productTypes = getProductTypesFromMetadata(session.metadata);
 
-    // Eine Order pro Produkt erstellen
-    for (let i = 0; i < productTypes.length; i++) {
-      const { error } = await supabaseAdmin
-        .from("orders")
-        .insert({
-          email,
-          product_type: productTypes[i],
-          status: "paid",
-          stripe_session_id: session.id,
-          cart_item_index: i,
-        });
+    // Alle Orders in einem Batch erstellen
+    const orderRows = productTypes.map((pt, i) => ({
+      email,
+      product_type: pt,
+      status: "paid",
+      stripe_session_id: session.id,
+      cart_item_index: i,
+    }));
 
-      if (error) {
-        // Falls die Order schon existiert (z.B. durch Success Page upsert), ignorieren
-        if (error.code === "23505") {
-          console.log(`Order already exists for session ${session.id} index ${i}`);
-        } else {
-          console.error(`Failed to insert order ${i}:`, error);
-          return NextResponse.json(
-            { error: "Database error" },
-            { status: 500 }
-          );
-        }
+    const { error } = await supabaseAdmin.from("orders").insert(orderRows);
+
+    if (error) {
+      // Falls Orders schon existieren (z.B. durch Success Page), ignorieren
+      if (error.code === "23505") {
+        console.log(`Orders already exist for session ${session.id}`);
+      } else {
+        console.error("Failed to insert orders:", error);
+        return NextResponse.json(
+          { error: "Database error" },
+          { status: 500 }
+        );
       }
     }
   }
