@@ -38,7 +38,7 @@ function emailLayout(content) {
 
           <tr>
             <td style="background-color:${colors.creamDark};padding:30px 20px 20px 20px;" align="center">
-                <img src="${siteUrl}/logo.png" alt="Seelensprache" width="150" style="display:block; border:0; width:150px; max-width:150px;" />
+                <img src="${siteUrl}/email-logo.png" alt="Seelensprache" width="150" style="display:block; border:0; width:150px; max-width:150px;" />
 
                 <p style="margin:10px 0 0 0; font-size:32px; font-family:'Brush Script MT','Segoe Script',cursive; color:${colors.rose}; line-height:1; letter-spacing:1px;">
                   Seelensprache
