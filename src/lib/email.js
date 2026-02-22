@@ -38,8 +38,9 @@ function emailLayout(content) {
         <table width="600" cellpadding="0" cellspacing="0" style="background-color:#ffffff;border-radius:24px;overflow:hidden;box-shadow:0 8px 40px rgba(196,134,139,0.15);">
           <!-- Header -->
           <tr>
-            <td style="background:${colors.creamDark};padding:48px 40px;text-align:center;">
-              <img src="${siteUrl}/email-header.png" alt="Seelensprache" width="240" style="display:block;margin:0 auto;height:auto;" />
+            <td style="background:${colors.creamDark};padding:32px 40px 28px;text-align:center;">
+              <img src="${siteUrl}/logo.png" alt="Seelensprache Logo" width="100" height="100" style="display:block;margin:0 auto;" />
+              <img src="${siteUrl}/email-header.png" alt="Seelensprache" width="200" style="display:block;margin:-10px auto 0;height:auto;" />
             </td>
           </tr>
           <!-- Rosé Trennlinie -->
