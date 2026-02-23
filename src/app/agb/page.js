@@ -1,14 +1,17 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/brand-logo";
+import { JsonLd } from "@/components/json-ld";
+import { breadcrumbJsonLd } from "@/lib/jsonld";
 
 export const metadata = {
-  title: "AGB | Seelensprache",
-  description: "Allgemeine Geschäftsbedingungen von Seelensprache.",
+  title: "AGB",
+  description: "Allgemeine Geschäftsbedingungen von Seelensprache — Patricia Beck, Loxstedt.",
 };
 
 export default function AGBPage() {
   return (
     <div className="min-h-screen px-6 py-12 relative">
+      <JsonLd data={breadcrumbJsonLd([{ name: "Startseite", url: "/" }, { name: "AGB" }])} />
       <div className="mx-auto max-w-3xl relative z-10">
         {/* Navbar */}
         <div className="flex items-center justify-between mb-10">

@@ -3,6 +3,10 @@ import { createClient } from "@/lib/supabase/server";
 import { AdminReadingCard } from "@/components/admin-reading-card";
 import { LogoutButton } from "@/components/logout-button";
 
+export const metadata = {
+  robots: { index: false, follow: false },
+};
+
 export default async function AdminPage() {
   const supabase = await createClient();
 

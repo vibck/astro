@@ -1,14 +1,17 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/brand-logo";
+import { JsonLd } from "@/components/json-ld";
+import { breadcrumbJsonLd } from "@/lib/jsonld";
 
 export const metadata = {
-  title: "Widerrufsbelehrung | Seelensprache",
+  title: "Widerrufsbelehrung",
   description: "Widerrufsbelehrung für digitale Inhalte gemäß § 356 Abs. 5 BGB.",
 };
 
 export default function WiderrufPage() {
   return (
     <div className="min-h-screen px-6 py-12 relative">
+      <JsonLd data={breadcrumbJsonLd([{ name: "Startseite", url: "/" }, { name: "Widerrufsbelehrung" }])} />
       <div className="mx-auto max-w-3xl relative z-10">
         {/* Navbar */}
         <div className="flex items-center justify-between mb-10">

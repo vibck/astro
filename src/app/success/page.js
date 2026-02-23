@@ -5,6 +5,10 @@ import { getSupabaseAdmin } from "@/lib/supabase/admin";
 import { SuccessMultiForm } from "@/components/success-multi-form";
 import { Button } from "@/components/ui/button";
 
+export const metadata = {
+  robots: { index: false, follow: false },
+};
+
 export default async function SuccessPage({ searchParams }) {
   const { session_id } = await searchParams;
 
