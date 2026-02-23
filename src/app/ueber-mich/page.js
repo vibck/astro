@@ -42,12 +42,13 @@ export default function UeberMichPage() {
                 Patricia Beck
               </h2>
               <p className="mb-3">
-                {/* PLATZHALTER – Hier kann Patricia ihren persönlichen Text einsetzen */}
-                Schön, dass du hier bist! Ich bin Patricia – astrologische Beraterin und die Seele hinter Seelensprache.
+                Schön, dass du hier bist. Ich bin Patricia – die Seele hinter Seelensprache.
               </p>
               <p>
-                Schon seit meiner Kindheit faszinieren mich die Sterne und ihre Geschichten.
-                Was als Neugier begann, wurde zu einer tiefen Leidenschaft, die mich bis heute begleitet.
+                Schon seit vielen Jahren begleitet mich Astrologie. Mal leise im Hintergrund, mal ganz präsent.
+                Ein Reading, das ich selbst bekommen habe, war für mich ein echter Wendepunkt. Nicht weil es
+                „magisch" war, sondern weil ich mich klar gesehen und verstanden gefühlt habe. Da wurde mir
+                bewusst: Genau das möchte ich weitergeben.
               </p>
             </div>
           </div>
@@ -55,32 +56,39 @@ export default function UeberMichPage() {
           <div className="space-y-6 text-earth text-sm leading-relaxed">
             <section>
               <h2 className="font-serif text-lg text-gold mb-2">Mein Weg zur Astrologie</h2>
+              <p className="mb-3">
+                Ich war schon immer jemand, der genauer hinschaut und Fragen stellt. Ich wollte verstehen,
+                warum Menschen fühlen, handeln und reagieren, wie sie es tun. Astrologie hat mir dafür
+                Sprache gegeben. Nicht als Schublade, sondern als Orientierung.
+              </p>
               <p>
-                {/* PLATZHALTER – Patricias Geschichte / Ausbildung / Werdegang */}
-                Die Astrologie hat mir geholfen, mich selbst besser zu verstehen – und genau das möchte ich
-                auch dir ermöglichen. Jedes Geburtshoroskop erzählt eine einzigartige Geschichte, und es ist
-                mir eine Herzensangelegenheit, diese Geschichte für dich sichtbar zu machen.
+                Seit einigen Jahren fühlt sich Astrologie für mich nicht mehr nur nach Interesse an, sondern
+                nach Berufung. Und ja, das passt auch zu meinem Chart.
               </p>
             </section>
 
             <section>
               <h2 className="font-serif text-lg text-gold mb-2">Meine Arbeit</h2>
+              <p className="mb-3">
+                Jedes Reading erstelle ich individuell und schreibe es komplett neu für dich. Ich übersetze
+                dein Geburtshoroskop in Alltagssprache, damit du dich wirklich wiedererkennst.
+              </p>
               <p>
-                {/* PLATZHALTER – Wie Patricia arbeitet, was sie besonders macht */}
-                Jedes Reading erstelle ich mit größter Sorgfalt und persönlicher Hingabe. Ich nehme mir
-                die Zeit, dein Geburtshoroskop in all seinen Facetten zu analysieren und dir eine
-                einfühlsame, verständliche Deutung zu schenken – kein Computertext, sondern echte,
-                persönliche Worte von Herz zu Herz.
+                Du bekommst Klarheit über deine Stärken, deine Muster, deine Trigger und deine Bedürfnisse.
+                Mir ist wichtig, dass du nicht nur „schöne Worte" liest, sondern etwas mitnimmst, das dich
+                im echten Leben weiterbringt.
               </p>
             </section>
 
             <section>
               <h2 className="font-serif text-lg text-gold mb-2">Was mich antreibt</h2>
+              <p className="mb-3">
+                Ich glaube, dass in jedem Menschen etwas sehr Eigenes steckt. Manchmal ist es nur überdeckt
+                von Stress, Erwartungen oder alten Geschichten.
+              </p>
               <p>
-                {/* PLATZHALTER – Motivation, Werte, persönliche Note */}
-                Ich glaube daran, dass jeder Mensch ein einzigartiges kosmisches Geschenk in sich trägt.
-                Mein Ziel ist es, dir zu helfen, dieses Geschenk zu erkennen und dein volles Potenzial
-                zu entfalten.
+                Mein Ziel ist, dass du dich durch dein Reading besser verstehst und dich in deinem Leben
+                klarer ausrichten kannst. Mit Respekt, mit Herz und mit ehrlichen Worten.
               </p>
             </section>
           </div>
