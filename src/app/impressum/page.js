@@ -1,14 +1,17 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/brand-logo";
+import { JsonLd } from "@/components/json-ld";
+import { breadcrumbJsonLd } from "@/lib/jsonld";
 
 export const metadata = {
-  title: "Impressum | Seelensprache",
-  description: "Impressum und Anbieterkennzeichnung gemäß § 5 DDG.",
+  title: "Impressum",
+  description: "Impressum und Anbieterkennzeichnung von Seelensprache gemäß § 5 DDG.",
 };
 
 export default function ImpressumPage() {
   return (
     <div className="min-h-screen px-6 py-12 relative">
+      <JsonLd data={breadcrumbJsonLd([{ name: "Startseite", url: "/" }, { name: "Impressum" }])} />
       <div className="mx-auto max-w-3xl relative z-10">
         {/* Navbar */}
         <div className="flex items-center justify-between mb-10">

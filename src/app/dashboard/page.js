@@ -6,6 +6,10 @@ import { ReadingCard } from "@/components/reading-card";
 import Link from "next/link";
 import { BrandLogo } from "@/components/brand-logo";
 
+export const metadata = {
+  robots: { index: false, follow: false },
+};
+
 export default async function DashboardPage() {
   const supabase = await createClient();
 

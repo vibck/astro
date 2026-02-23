@@ -2,6 +2,10 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { BirthDataForm } from "@/components/birth-data-form";
 
+export const metadata = {
+  robots: { index: false, follow: false },
+};
+
 export default async function BirthDataPage({ searchParams }) {
   const supabase = await createClient();
 

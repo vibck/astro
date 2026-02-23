@@ -1,14 +1,17 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/brand-logo";
+import { JsonLd } from "@/components/json-ld";
+import { breadcrumbJsonLd } from "@/lib/jsonld";
 
 export const metadata = {
-  title: "Über mich | Seelensprache",
-  description: "Lerne Patricia kennen – die Seele hinter Seelensprache.",
+  title: "Über mich",
+  description: "Lerne Patricia Beck kennen, die Seele hinter Seelensprache. Astrologische Beraterin aus Loxstedt mit Leidenschaft für persönliche Horoskope.",
 };
 
 export default function UeberMichPage() {
   return (
     <div className="min-h-screen px-6 py-12 relative">
+      <JsonLd data={breadcrumbJsonLd([{ name: "Startseite", url: "/" }, { name: "Über mich" }])} />
       <div className="mx-auto max-w-3xl relative z-10">
         {/* Navbar */}
         <div className="flex items-center justify-between mb-10">
