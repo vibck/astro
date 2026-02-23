@@ -27,7 +27,7 @@ export const metadata = {
     template: "%s | Seelensprache",
   },
   description:
-    "Professionelle Astrologie-Readings als PDF — Geburtshoroskop, Kinder-Horoskop und Partner-Synastrie. Persönlich erstellt von Patricia Beck.",
+    "Entdecke deine Seelensprache. Professionelle Astrologie-Readings als PDF — Geburtshoroskop, Kinder-Horoskop und Partner-Synastrie. Persönlich erstellt von Patricia Beck.",
   keywords: [
     "Astrologie",
     "Horoskop",
