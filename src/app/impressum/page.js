@@ -6,6 +6,9 @@ import { breadcrumbJsonLd } from "@/lib/jsonld";
 export const metadata = {
   title: "Impressum",
   description: "Impressum und Anbieterkennzeichnung von Seelensprache gemäß § 5 DDG.",
+  alternates: {
+    canonical: "/impressum",
+  },
 };
 
 export default function ImpressumPage() {

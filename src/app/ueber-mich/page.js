@@ -6,6 +6,9 @@ import { breadcrumbJsonLd } from "@/lib/jsonld";
 export const metadata = {
   title: "Über mich",
   description: "Lerne Patricia Beck kennen, die Seele hinter Seelensprache. Astrologische Beraterin aus Loxstedt mit Leidenschaft für persönliche Horoskope.",
+  alternates: {
+    canonical: "/ueber-mich",
+  },
 };
 
 export default function UeberMichPage() {

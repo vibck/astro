@@ -6,6 +6,9 @@ import { breadcrumbJsonLd } from "@/lib/jsonld";
 export const metadata = {
   title: "Datenschutzerklärung",
   description: "Datenschutzerklärung von Seelensprache gemäß DSGVO Art. 13/14.",
+  alternates: {
+    canonical: "/datenschutz",
+  },
 };
 
 export default function DatenschutzPage() {

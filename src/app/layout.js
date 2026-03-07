@@ -43,6 +43,9 @@ export const metadata = {
   ],
   authors: [{ name: "Patricia Beck" }],
   creator: "Seelensprache",
+  alternates: {
+    canonical: "https://seelensprache-astro.de",
+  },
   openGraph: {
     type: "website",
     locale: "de_DE",

@@ -6,6 +6,9 @@ import { breadcrumbJsonLd } from "@/lib/jsonld";
 export const metadata = {
   title: "AGB",
   description: "Allgemeine Geschäftsbedingungen von Seelensprache — Patricia Beck, Loxstedt.",
+  alternates: {
+    canonical: "/agb",
+  },
 };
 
 export default function AGBPage() {
