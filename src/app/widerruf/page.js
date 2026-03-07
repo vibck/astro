@@ -6,6 +6,9 @@ import { breadcrumbJsonLd } from "@/lib/jsonld";
 export const metadata = {
   title: "Widerrufsbelehrung",
   description: "Widerrufsbelehrung für digitale Inhalte gemäß § 356 Abs. 5 BGB.",
+  alternates: {
+    canonical: "/widerruf",
+  },
 };
 
 export default function WiderrufPage() {
