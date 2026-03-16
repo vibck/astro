@@ -19,7 +19,7 @@ export function organizationJsonLd() {
       addressLocality: "Loxstedt",
       addressCountry: "DE",
     },
-    priceRange: "79€–129€",
+    priceRange: "79€–149€",
     areaServed: {
       "@type": "Country",
       name: "Deutschland",
@@ -50,6 +50,7 @@ export function productJsonLd(product) {
       "@type": "Offer",
       price: (product.price / 100).toFixed(2),
       priceCurrency: "EUR",
+      priceValidUntil: "2026-12-31",
       availability: "https://schema.org/InStock",
       url: baseUrl,
       seller: {
