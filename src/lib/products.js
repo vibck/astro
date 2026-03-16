@@ -39,8 +39,8 @@ export const products = {
     subtitle: "Die Verbindung zweier Seelen",
     description:
       "Entdecke die kosmische Dynamik zwischen dir und deinem Partner. Erfahre, wie eure Energien zusammenwirken, wo Harmonie und wo Wachstumspotenzial liegt.",
-    price: 12900,
-    priceDisplay: "129",
+    price: 14900,
+    priceDisplay: "149",
     formType: "partner",
     features: [
       "Synastrie-Analyse beider Charts",
