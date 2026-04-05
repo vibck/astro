@@ -11,8 +11,9 @@ export const articles = [
     icon: "✦",
     publishedDate: "2026-04-05",
     modifiedDate: "2026-04-05",
-    readingTime: "5 Min.",
+    readingTime: "8 Min.",
     relatedProduct: "seelenspiegel",
+    relatedArticles: ["mondzeichen-gefuehle", "vier-elemente-astrologie", "venus-zeichen-liebe"],
     content: () => (
       <>
         <p>
@@ -34,7 +35,9 @@ export const articles = [
         <p>
           Stell dir vor, dein Sonnenzeichen ist der Inhalt eines Buches und dein
           Aszendent das Cover. Beide gehören zusammen, aber der erste Eindruck
-          entsteht durch das Äußere.
+          entsteht durch das Äußere. Deshalb fühlen sich viele Menschen von der
+          Beschreibung ihres Sternzeichens nicht komplett abgeholt. Die fehlende
+          Zutat ist meistens der Aszendent.
         </p>
 
         <h2>Warum ist der Aszendent so wichtig?</h2>
@@ -53,7 +56,33 @@ export const articles = [
           <li>Dein äußeres Erscheinungsbild und Auftreten</li>
           <li>Wie du neue Situationen und Herausforderungen angehst</li>
           <li>Welche Themen in deinem Leben besonders präsent sind</li>
+          <li>Deine spontanen Reaktionen in unbekannten Situationen</li>
         </ul>
+        <p>
+          In der professionellen Astrologie wird der Aszendent sogar als
+          wichtiger als das Sonnenzeichen betrachtet. Er bestimmt die gesamte
+          Struktur deines Geburtshoroskops, weil er festlegt, welches Zeichen
+          welches Lebensthema (Haus) regiert. Ohne Aszendent ist ein Horoskop
+          unvollständig.
+        </p>
+
+        <h2>Der Aszendent und die drei großen Drei</h2>
+        <p>
+          In der Astrologie spricht man oft von den „großen Drei": Sonne, Mond
+          und Aszendent. Die Sonne steht für dein bewusstes Ich, der{" "}
+          <Link href="/wissen/mondzeichen-gefuehle" className="text-gold hover:text-gold-light underline underline-offset-2">
+            Mond für deine Gefühlswelt
+          </Link>{" "}
+          und der Aszendent für dein äußeres Auftreten. Erst wenn du alle drei
+          kennst, bekommst du ein rundes Bild deiner Persönlichkeit.
+        </p>
+        <p>
+          Stell dir eine Person mit Sonne in Waage vor: diplomatisch,
+          harmoniebedürftig, ästhetisch. Dazu ein Mond in Skorpion: emotional
+          intensiv und tiefgründig. Und ein Aszendent in Löwe: selbstbewusstes
+          Auftreten, warm und präsent. Diese drei Energien zusammen ergeben ein
+          Bild, das kein einzelnes Zeichen für sich abbilden könnte.
+        </p>
 
         <h2>Wie findest du deinen Aszendenten heraus?</h2>
         <p>
@@ -66,22 +95,61 @@ export const articles = [
         <p>
           Deine Geburtszeit findest du in der Regel auf deiner Geburtsurkunde
           oder im Stammbuch. Falls du sie nicht kennst, lohnt es sich, beim
-          Standesamt nachzufragen.
+          Standesamt nachzufragen. In Deutschland wird die Geburtszeit
+          standardmäßig erfasst und kann auch Jahre später noch angefordert
+          werden.
         </p>
 
         <h2>Die 12 Aszendenten im Überblick</h2>
         <p>
           Jedes der zwölf Tierkreiszeichen kann als Aszendent auftreten und
-          bringt seine eigene Qualität mit. Widder-Aszendenten strahlen
-          Tatendrang und Energie aus, während Waage-Aszendenten diplomatisch
-          und charmant auf andere wirken. Skorpion-Aszendenten haben eine
-          intensive, magnetische Ausstrahlung, und Schütze-Aszendenten wirken
-          offen und abenteuerlustig.
+          bringt seine eigene Qualität mit:
+        </p>
+        <ul>
+          <li><strong>Widder-Aszendent:</strong> Energisch, direkt, mutig. Geht Dinge kopfüber an.</li>
+          <li><strong>Stier-Aszendent:</strong> Ruhig, sinnlich, beständig. Strahlt Gelassenheit aus.</li>
+          <li><strong>Zwillinge-Aszendent:</strong> Kommunikativ, neugierig, vielseitig. Immer in Bewegung.</li>
+          <li><strong>Krebs-Aszendent:</strong> Einfühlsam, fürsorglich, zurückhaltend. Schützt sich und andere.</li>
+          <li><strong>Löwe-Aszendent:</strong> Selbstbewusst, warm, großzügig. Natürliche Präsenz.</li>
+          <li><strong>Jungfrau-Aszendent:</strong> Aufmerksam, bescheiden, analytisch. Achtet auf Details.</li>
+          <li><strong>Waage-Aszendent:</strong> Diplomatisch, charmant, harmonisch. Sucht die Balance.</li>
+          <li><strong>Skorpion-Aszendent:</strong> Intensiv, magnetisch, durchdringend. Tiefgründiger Blick.</li>
+          <li><strong>Schütze-Aszendent:</strong> Offen, optimistisch, abenteuerlustig. Liebt die Weite.</li>
+          <li><strong>Steinbock-Aszendent:</strong> Strukturiert, zielstrebig, ernst. Wirkt reifer als das Alter.</li>
+          <li><strong>Wassermann-Aszendent:</strong> Unkonventionell, freiheitsliebend, originell. Denkt anders.</li>
+          <li><strong>Fische-Aszendent:</strong> Sanft, verträumt, empathisch. Fließende Grenzen.</li>
+        </ul>
+
+        <h2>Der Aszendent und die Elemente</h2>
+        <p>
+          Auch der Aszendent gehört zu einem der{" "}
+          <Link href="/wissen/vier-elemente-astrologie" className="text-gold hover:text-gold-light underline underline-offset-2">
+            vier Elemente: Feuer, Erde, Luft oder Wasser
+          </Link>
+          . Ein Feuer-Aszendent (Widder, Löwe, Schütze) tritt energisch und
+          selbstbewusst auf. Ein Erde-Aszendent (Stier, Jungfrau, Steinbock)
+          wirkt geerdet und zuverlässig. Ein Luft-Aszendent (Zwillinge, Waage,
+          Wassermann) erscheint kommunikativ und offen. Und ein
+          Wasser-Aszendent (Krebs, Skorpion, Fische) strahlt emotionale Tiefe
+          und Sensibilität aus.
         </p>
         <p>
-          Um wirklich zu verstehen, wie dein Aszendent mit deinem Sonnenzeichen,
-          Mondzeichen und den anderen Planeten zusammenspielt, braucht es einen
-          Blick auf dein gesamtes Geburtshoroskop.
+          Wenn das Element deines Aszendenten sich von dem deiner Sonne
+          unterscheidet, entstehen oft interessante Spannungen. Ein
+          Feuer-Sonnenzeichen mit einem Wasser-Aszendenten wirkt nach außen
+          ruhiger, als es innerlich brennt. Diese Gegensätze machen dich aus.
+        </p>
+
+        <h2>Mehr als nur ein Zeichen</h2>
+        <p>
+          Um wirklich zu verstehen, wie dein Aszendent mit deinem Sonnenzeichen,{" "}
+          <Link href="/wissen/mondzeichen-gefuehle" className="text-gold hover:text-gold-light underline underline-offset-2">
+            Mondzeichen
+          </Link>{" "}
+          und den anderen Planeten zusammenspielt, braucht es einen Blick auf
+          dein gesamtes Geburtshoroskop. Erst dort wird sichtbar, wie all diese
+          Kräfte zusammenwirken und welche einzigartige Geschichte sie gemeinsam
+          erzählen.
         </p>
       </>
     ),
@@ -96,8 +164,9 @@ export const articles = [
     icon: "♄",
     publishedDate: "2026-04-05",
     modifiedDate: "2026-04-05",
-    readingTime: "6 Min.",
+    readingTime: "9 Min.",
     relatedProduct: "seelenspiegel",
+    relatedArticles: ["was-ist-dein-aszendent", "vier-elemente-astrologie", "mondzeichen-gefuehle"],
     content: () => (
       <>
         <p>
@@ -124,6 +193,11 @@ export const articles = [
         </p>
 
         <h2>Typische Themen während des Saturn Return</h2>
+        <p>
+          Der Saturn Return bringt selten völlig neue Themen in dein Leben. Stattdessen
+          verstärkt er das, was ohnehin schon brodelt. Dinge, die nicht mehr passen,
+          werden unerträglich. Was stimmt, wird stärker. Die häufigsten Themen:
+        </p>
         <ul>
           <li>Beziehungen werden auf den Prüfstand gestellt</li>
           <li>Berufliche Neuorientierung oder Karriereschübe</li>
@@ -131,7 +205,58 @@ export const articles = [
           <li>Das Bedürfnis nach Authentizität wächst</li>
           <li>Alte Freundschaften verändern sich oder enden</li>
           <li>Größere Lebensentscheidungen stehen an (Umzug, Heirat, Kinder)</li>
+          <li>Der Wunsch, endlich das eigene Ding zu machen</li>
         </ul>
+        <p>
+          Interessanterweise erleben viele Menschen ihren Saturn Return als eine
+          Art Identitätskrise, die sich im Nachhinein als Befreiung herausstellt.
+          Der Schmerz entsteht nicht durch Saturn selbst, sondern durch das
+          Festhalten an Dingen, die nicht mehr zu dir passen.
+        </p>
+
+        <h2>Saturn in den verschiedenen Zeichen</h2>
+        <p>
+          Wo Saturn in deinem Geburtshoroskop steht, bestimmt, in welchem
+          Lebensbereich deine größten Prüfungen und dein größtes Wachstum
+          liegen. Saturn in einem{" "}
+          <Link href="/wissen/vier-elemente-astrologie" className="text-gold hover:text-gold-light underline underline-offset-2">
+            Feuerzeichen
+          </Link>{" "}
+          (Widder, Löwe, Schütze) fordert dich heraus, deinen eigenen Weg zu
+          gehen und Selbstvertrauen zu entwickeln. Saturn in einem Erdzeichen
+          (Stier, Jungfrau, Steinbock) verlangt, solide Fundamente zu bauen und
+          Verantwortung für dein materielles Leben zu übernehmen.
+        </p>
+        <p>
+          Saturn in einem Luftzeichen (Zwillinge, Waage, Wassermann) prüft
+          deine Beziehungen und deine Art zu kommunizieren. Und Saturn in einem
+          Wasserzeichen (Krebs, Skorpion, Fische) konfrontiert dich mit deinen
+          tiefsten Emotionen und fordert dich auf, dein{" "}
+          <Link href="/wissen/mondzeichen-gefuehle" className="text-gold hover:text-gold-light underline underline-offset-2">
+            Gefühlsleben
+          </Link>{" "}
+          bewusst zu gestalten.
+        </p>
+
+        <h2>Die drei Saturn Returns im Leben</h2>
+        <p>
+          Der erste Saturn Return findet zwischen dem 27. und 30. Lebensjahr
+          statt. Er markiert den Übergang vom jungen Erwachsenen zum
+          eigenständigen Menschen. Hier geht es darum, sich von den
+          Erwartungen der Kindheit zu lösen und eine eigene Identität zu formen.
+        </p>
+        <p>
+          Der zweite Saturn Return kommt um das 58. Lebensjahr. Er bringt
+          Fragen nach dem Sinn der zweiten Lebenshälfte. Was willst du
+          hinterlassen? Was hat wirklich Bestand? Viele Menschen erleben hier
+          eine tiefe Neuorientierung, die zu mehr Authentizität und innerem
+          Frieden führt.
+        </p>
+        <p>
+          Den dritten Saturn Return um das 87. Lebensjahr erleben nicht alle,
+          aber wer ihn erreicht, blickt auf ein ganzes Leben zurück und
+          reflektiert die Essenz seiner Reise.
+        </p>
 
         <h2>Saturn Return als Chance</h2>
         <p>
@@ -141,20 +266,29 @@ export const articles = [
           dieser Zeit hervor. Viele Menschen berichten, dass sie sich nach ihrem
           Saturn Return zum ersten Mal wirklich angekommen fühlen.
         </p>
-
-        <h2>Wann ist dein Saturn Return?</h2>
         <p>
-          Der erste Saturn Return findet zwischen dem 27. und 30. Lebensjahr
-          statt. Der zweite folgt um das 58. Lebensjahr. Um genau zu wissen,
-          wann Saturn in deinem persönlichen Horoskop aktiv wird, brauchst du
-          dein vollständiges Geburtshoroskop mit der exakten Position deines
-          Geburts-Saturn.
+          Der Schlüssel liegt darin, Saturn nicht als Feind zu sehen, sondern als
+          Verbündeten. Er nimmt dir nichts weg, was dir wirklich gehört. Er räumt
+          nur auf, was im Weg steht. Wenn du dich auf diesen Prozess einlässt,
+          statt dagegen zu kämpfen, wird die Transformation leichter.
+        </p>
+
+        <h2>Wie du dich auf deinen Saturn Return vorbereiten kannst</h2>
+        <p>
+          Der wichtigste Schritt ist, ehrlich zu dir selbst zu sein. Frag dich:
+          Lebe ich das Leben, das ich will? Oder das Leben, das andere von mir
+          erwarten? Saturn respektiert keine Ausreden und keine halben Sachen.
+          Er will Klarheit.
         </p>
         <p>
-          Saturn zeigt dir, wo du im Leben am meisten wachsen kannst. Er
-          fordert dich heraus, aber er lässt dich nicht allein. Wer seine
-          Saturn-Energie versteht, kann sie bewusst nutzen und die eigene
-          Lebensrichtung klar bestimmen.
+          Dein{" "}
+          <Link href="/wissen/was-ist-dein-aszendent" className="text-gold hover:text-gold-light underline underline-offset-2">
+            Geburtshoroskop
+          </Link>{" "}
+          zeigt dir genau, in welchem Bereich deines Lebens Saturn wirkt und
+          welche Themen er anstößt. Wer seine Saturn-Energie versteht, kann sie
+          bewusst nutzen und die eigene Lebensrichtung klar bestimmen, statt
+          von den Veränderungen überrollt zu werden.
         </p>
       </>
     ),
@@ -169,8 +303,9 @@ export const articles = [
     icon: "🜂",
     publishedDate: "2026-04-05",
     modifiedDate: "2026-04-05",
-    readingTime: "5 Min.",
+    readingTime: "9 Min.",
     relatedProduct: "seelenspiegel",
+    relatedArticles: ["was-ist-dein-aszendent", "mondzeichen-gefuehle", "venus-zeichen-liebe"],
     content: () => (
       <>
         <p>
@@ -190,6 +325,13 @@ export const articles = [
           zieht abenteuerlustig in die Weite. Feuer braucht Raum, Freiheit und
           eine Vision, für die es brennen kann. Ohne Ziel wird es rastlos.
         </p>
+        <p>
+          Die Stärke der Feuerzeichen liegt in ihrer Begeisterungsfähigkeit. Sie
+          können andere mitreißen und inspirieren. Ihre Herausforderung ist
+          Geduld. Feuer will sofort Ergebnisse sehen und tut sich schwer mit
+          langsamen Prozessen. In Beziehungen bringt Feuer Leidenschaft und
+          Wärme, braucht aber auch genug Raum, um nicht zu ersticken.
+        </p>
 
         <h2>Erde: Stier, Jungfrau, Steinbock</h2>
         <p>
@@ -198,6 +340,13 @@ export const articles = [
           Lebens, Jungfrau organisiert und analysiert, Steinbock baut langfristig
           auf. Erdmenschen brauchen Sicherheit und Struktur. Sie sind die
           Menschen, auf die man sich verlassen kann, wenn es darauf ankommt.
+        </p>
+        <p>
+          Die Stärke der Erdzeichen ist ihre Verlässlichkeit und ihr Realismus.
+          Sie setzen Dinge um, während andere noch planen. Ihre Herausforderung
+          liegt darin, loszulassen und sich auf Veränderungen einzulassen. Erde
+          hält gerne fest, auch an Dingen, die nicht mehr dienen. In Beziehungen
+          bieten Erdzeichen Stabilität, erwarten aber auch Treue und Verbindlichkeit.
         </p>
 
         <h2>Luft: Zwillinge, Waage, Wassermann</h2>
@@ -208,6 +357,14 @@ export const articles = [
           Luftmenschen brauchen geistigen Austausch und Inspiration. Routine und
           Einengung sind ihre größten Feinde.
         </p>
+        <p>
+          Die Stärke der Luftzeichen ist ihre Fähigkeit, Zusammenhänge zu
+          erkennen und Ideen zu vermitteln. Sie können verschiedene Perspektiven
+          einnehmen und sind oft ausgezeichnete Vermittler. Ihre Herausforderung
+          ist die emotionale Tiefe. Luft neigt dazu, Gefühle zu
+          intellektualisieren statt sie zu fühlen. In Beziehungen brauchen
+          Luftzeichen vor allem geistige Anregung und gute Gespräche.
+        </p>
 
         <h2>Wasser: Krebs, Skorpion, Fische</h2>
         <p>
@@ -217,22 +374,66 @@ export const articles = [
           Grenzen zwischen Realität und Traum auf. Wassermenschen brauchen
           emotionale Tiefe und echte Verbindungen.
         </p>
+        <p>
+          Die Stärke der Wasserzeichen ist ihre Empathie und emotionale
+          Intelligenz. Sie spüren, was andere brauchen, oft bevor es
+          ausgesprochen wird. Ihre Herausforderung ist die Abgrenzung. Wasser
+          nimmt alles auf und braucht bewusste Pausen, um sich nicht in den
+          Emotionen anderer zu verlieren. In Beziehungen suchen Wasserzeichen
+          tiefe Seelenverwandtschaft und echtes Verständnis.
+        </p>
+
+        <h2>Element-Kombinationen in der Partnerschaft</h2>
+        <p>
+          Spannend wird es, wenn verschiedene Elemente aufeinandertreffen. Feuer
+          und Luft ergänzen sich natürlich: Luft facht Feuer an, und Feuer gibt
+          Luft eine Richtung. Erde und Wasser harmonieren ebenfalls: Erde gibt
+          Wasser Struktur, und Wasser macht Erde fruchtbar.
+        </p>
+        <p>
+          Feuer und Wasser können herausfordernd sein, denn Wasser löscht Feuer
+          und Feuer bringt Wasser zum Kochen. Aber genau diese Spannung kann
+          auch zu tiefer Transformation führen. Erde und Luft scheinen
+          gegensätzlich, können sich aber wunderbar ergänzen, wenn Erde die
+          Ideen der Luft in die Realität bringt.
+          Wenn du wissen möchtest, wie dein{" "}
+          <Link href="/wissen/venus-zeichen-liebe" className="text-gold hover:text-gold-light underline underline-offset-2">
+            Venus-Zeichen
+          </Link>{" "}
+          in Beziehungen wirkt, gibt dir das noch tiefere Einblicke in deine
+          Liebessprache.
+        </p>
 
         <h2>Die Elemente in deinem Horoskop</h2>
         <p>
           Jeder Mensch trägt alle vier Elemente in sich, aber in
           unterschiedlicher Verteilung. Vielleicht ist deine Sonne in einem
-          Feuerzeichen, dein Mond in Wasser und dein Aszendent in Erde. Diese
-          Mischung macht deine einzigartige Persönlichkeit aus. Wenn ein
-          Element besonders stark oder besonders schwach vertreten ist, zeigt
-          sich das deutlich im Alltag.
+          Feuerzeichen, dein{" "}
+          <Link href="/wissen/mondzeichen-gefuehle" className="text-gold hover:text-gold-light underline underline-offset-2">
+            Mond
+          </Link>{" "}
+          in Wasser und dein{" "}
+          <Link href="/wissen/was-ist-dein-aszendent" className="text-gold hover:text-gold-light underline underline-offset-2">
+            Aszendent
+          </Link>{" "}
+          in Erde. Diese Mischung macht deine einzigartige Persönlichkeit aus.
+          Wenn ein Element besonders stark oder besonders schwach vertreten ist,
+          zeigt sich das deutlich im Alltag.
         </p>
         <p>
           Ein Horoskop mit viel Feuer und wenig Erde kann beispielsweise
           bedeuten, dass jemand voller Ideen steckt, aber Schwierigkeiten hat,
           Dinge zu Ende zu bringen. Viel Wasser und wenig Luft kann auf einen
           Menschen hindeuten, der tief empfindet, aber seine Gefühle nur
-          schwer in Worte fassen kann.
+          schwer in Worte fassen kann. Viel Erde und wenig Feuer sorgt für
+          Beständigkeit, aber manchmal fehlt der Funke, der alles in Bewegung
+          bringt.
+        </p>
+        <p>
+          Um deine ganz persönliche Elementverteilung zu erfahren, braucht es
+          einen Blick auf dein gesamtes Geburtshoroskop, denn nicht nur Sonne,
+          Mond und Aszendent zählen, sondern auch Merkur, Venus, Mars und alle
+          weiteren Planeten.
         </p>
       </>
     ),
@@ -247,8 +448,9 @@ export const articles = [
     icon: "☽",
     publishedDate: "2026-04-05",
     modifiedDate: "2026-04-05",
-    readingTime: "5 Min.",
+    readingTime: "9 Min.",
     relatedProduct: "seelenspiegel",
+    relatedArticles: ["was-ist-dein-aszendent", "venus-zeichen-liebe", "vier-elemente-astrologie"],
     content: () => (
       <>
         <p>
@@ -268,12 +470,34 @@ export const articles = [
           der Mond nach innen.
         </p>
         <p>
-          Ein Mond in Widder fühlt intensiv und schnell. Emotionen kommen und
-          gehen wie Blitze. Ein Mond in Stier dagegen braucht Ruhe, Gemütlichkeit
-          und physischen Komfort, um sich wohl zu fühlen. Mond in Krebs fühlt
-          tief und familiär, während Mond in Wassermann emotionale Freiheit
-          über alles stellt.
+          Dein Mondzeichen beschreibt auch, wie du als Kind emotional geprägt
+          wurdest und welche Muster du in dir trägst. Es ist die Ebene, die in
+          vertrauten Beziehungen zum Vorschein kommt, wenn die Fassade des{" "}
+          <Link href="/wissen/was-ist-dein-aszendent" className="text-gold hover:text-gold-light underline underline-offset-2">
+            Aszendenten
+          </Link>{" "}
+          fällt. Partner, Familie und enge Freunde erleben dein Mondzeichen
+          viel stärker als Außenstehende.
         </p>
+
+        <h2>Die 12 Mondzeichen und ihre emotionale Sprache</h2>
+        <p>
+          Jedes Mondzeichen hat eine eigene Art zu fühlen und Nähe zu suchen:
+        </p>
+        <ul>
+          <li><strong>Mond in Widder:</strong> Fühlt schnell und intensiv. Braucht Action und Unabhängigkeit, auch emotional.</li>
+          <li><strong>Mond in Stier:</strong> Sucht Komfort und Geborgenheit. Gutes Essen, Natur und körperliche Nähe geben Sicherheit.</li>
+          <li><strong>Mond in Zwillinge:</strong> Verarbeitet Gefühle durch Gespräche. Braucht Abwechslung und geistigen Austausch.</li>
+          <li><strong>Mond in Krebs:</strong> Fühlt am tiefsten von allen. Braucht ein sicheres Zuhause und emotionale Geborgenheit.</li>
+          <li><strong>Mond in Löwe:</strong> Will gesehen und wertgeschätzt werden. Braucht Bestätigung und herzliche Zuneigung.</li>
+          <li><strong>Mond in Jungfrau:</strong> Zeigt Fürsorge durch Taten. Braucht Ordnung und das Gefühl, nützlich zu sein.</li>
+          <li><strong>Mond in Waage:</strong> Sucht Harmonie und Ausgleich. Konflikte belasten diesen Mond besonders.</li>
+          <li><strong>Mond in Skorpion:</strong> Fühlt alles oder nichts. Braucht emotionale Ehrlichkeit und tiefes Vertrauen.</li>
+          <li><strong>Mond in Schütze:</strong> Sucht Freiheit und Sinn. Fühlt sich wohl bei Abenteuern und philosophischen Gesprächen.</li>
+          <li><strong>Mond in Steinbock:</strong> Zeigt Gefühle ungern. Braucht Respekt und das Gefühl von Kontrolle.</li>
+          <li><strong>Mond in Wassermann:</strong> Braucht emotionale Freiheit. Fühlt sich durch Erwartungen eingeengt.</li>
+          <li><strong>Mond in Fische:</strong> Fühlt alles, auch das, was andere fühlen. Braucht Rückzug und kreative Ausdrucksmöglichkeiten.</li>
+        </ul>
 
         <h2>Warum kennen viele ihr Mondzeichen nicht?</h2>
         <p>
@@ -282,6 +506,27 @@ export const articles = [
           Mondzeichen zu bestimmen, brauchst du deshalb nicht nur dein
           Geburtsdatum, sondern auch deine Geburtszeit und deinen Geburtsort.
           Ohne diese Angaben lässt sich der Mond nicht zuverlässig berechnen.
+        </p>
+        <p>
+          Deshalb ist das Mondzeichen auch weniger bekannt als das Sonnenzeichen.
+          In Zeitschriften und Apps steht meistens nur das Sternzeichen, weil
+          man dafür nur das Geburtsdatum braucht. Aber wer sich ernsthaft mit
+          Astrologie beschäftigt, kommt am Mond nicht vorbei.
+        </p>
+
+        <h2>Der Mond und die Elemente</h2>
+        <p>
+          Auch beim Mond spielen die{" "}
+          <Link href="/wissen/vier-elemente-astrologie" className="text-gold hover:text-gold-light underline underline-offset-2">
+            vier Elemente
+          </Link>{" "}
+          eine wichtige Rolle. Ein Feuer-Mond (Widder, Löwe, Schütze) erlebt
+          Emotionen als Energie und Antrieb. Ein Erde-Mond (Stier, Jungfrau,
+          Steinbock) braucht greifbare Sicherheit, um sich emotional wohl zu
+          fühlen. Ein Luft-Mond (Zwillinge, Waage, Wassermann) verarbeitet
+          Gefühle kognitiv und braucht Austausch. Ein Wasser-Mond (Krebs,
+          Skorpion, Fische) fühlt am intensivsten und braucht emotionalen
+          Rückzugsraum.
         </p>
 
         <h2>Sonne und Mond: ein Team</h2>
@@ -293,6 +538,12 @@ export const articles = [
           steckt. Diese innere Spannung kann manchmal herausfordernd sein,
           aber sie macht dich auch einzigartig.
         </p>
+        <p>
+          Wenn Sonne und Mond im selben Zeichen stehen (Neumond-Geborene),
+          sind inneres Fühlen und äußerer Ausdruck besonders einheitlich. Stehen
+          sie sich gegenüber (Vollmond-Geborene), gibt es eine innere Polarität,
+          die zu Wachstum und Tiefe führen kann.
+        </p>
 
         <h2>Was der Mond über Beziehungen verrät</h2>
         <p>
@@ -302,6 +553,16 @@ export const articles = [
           kompatible Mondzeichen haben, entsteht oft ein tiefes Gefühl von
           Verständnis. Wenn die Monde sehr unterschiedlich sind, braucht es
           Bewusstsein und Kommunikation.
+        </p>
+        <p>
+          Auch dein{" "}
+          <Link href="/wissen/venus-zeichen-liebe" className="text-gold hover:text-gold-light underline underline-offset-2">
+            Venus-Zeichen
+          </Link>{" "}
+          spielt in der Liebe eine zentrale Rolle. Während der Mond zeigt, was
+          du emotional brauchst, zeigt Venus, wie du Liebe gibst und empfängst.
+          Zusammen ergeben Mond und Venus ein detailliertes Bild deiner
+          Beziehungslandschaft.
         </p>
         <p>
           Dein Mondzeichen zu kennen ist wie eine Bedienungsanleitung für
@@ -321,8 +582,9 @@ export const articles = [
     icon: "♀",
     publishedDate: "2026-04-05",
     modifiedDate: "2026-04-05",
-    readingTime: "6 Min.",
+    readingTime: "9 Min.",
     relatedProduct: "seelenkompass",
+    relatedArticles: ["mondzeichen-gefuehle", "vier-elemente-astrologie", "saturn-return"],
     content: () => (
       <>
         <p>
@@ -333,45 +595,117 @@ export const articles = [
           Leidenschaft steht, steht Venus für die Hingabe.
         </p>
 
+        <h2>Was Venus in deinem Horoskop bedeutet</h2>
+        <p>
+          Venus regiert zwei Zeichen: Stier und Waage. Im Stier zeigt sich ihre
+          sinnliche, genussvolle Seite. In der Waage ihre harmonische,
+          ästhetische Qualität. Dein persönliches Venus-Zeichen sagt dir, welche
+          dieser Qualitäten du in der Liebe lebst und suchst.
+        </p>
+        <p>
+          Neben der romantischen Liebe steht Venus auch für Ästhetik, Genuss und
+          deine persönlichen Werte. Was findest du schön? Was gibt dir das
+          Gefühl von Fülle? Venus beantwortet all diese Fragen. Sie ist der
+          Teil von dir, der sich nach Verbindung, Schönheit und Freude sehnt.
+        </p>
+
         <h2>Venus in den Feuerzeichen</h2>
         <p>
           Venus in Widder liebt direkt und ungeduldig. Hier gibt es kein
-          langes Drumherum, die Anziehung ist sofort da oder gar nicht. Venus
-          in Löwe liebt großzügig und theatralisch; sie will bewundert werden
-          und schenkt im Gegenzug leidenschaftliche Aufmerksamkeit. Venus in
-          Schütze liebt die Freiheit in der Liebe. Abenteuer und geistiger
-          Austausch sind wichtiger als Routine.
+          langes Drumherum, die Anziehung ist sofort da oder gar nicht. Diese
+          Venus liebt die Jagd und den Nervenkitzel des Neuen. In einer
+          Beziehung braucht sie Herausforderung und Unabhängigkeit.
+        </p>
+        <p>
+          Venus in Löwe liebt großzügig und theatralisch; sie will
+          bewundert werden und schenkt im Gegenzug leidenschaftliche
+          Aufmerksamkeit. Romantische Gesten, Überraschungen und das Gefühl,
+          etwas Besonderes zu sein, sind ihr wichtig.
+        </p>
+        <p>
+          Venus in Schütze liebt die Freiheit in der Liebe.
+          Abenteuer und geistiger Austausch sind wichtiger als Routine. Diese
+          Venus braucht einen Partner, der mithalten kann und die Welt gemeinsam
+          erkunden will.
         </p>
 
         <h2>Venus in den Erdzeichen</h2>
         <p>
           Venus in Stier ist in ihrem Element. Sie liebt sinnlich, treu und
           mit vollem Einsatz. Gutes Essen, Berührungen und Beständigkeit
-          stehen hier an erster Stelle. Venus in Jungfrau zeigt Liebe durch
-          Fürsorge und aufmerksame Gesten. Sie merkt sich Details und drückt
-          Zuneigung durch Handlungen aus. Venus in Steinbock liebt langsam,
-          aber beständig. Sie braucht Sicherheit und schätzt einen Partner,
-          der seine Versprechen hält.
+          stehen hier an erster Stelle. Diese Venus bleibt, wenn sie sich
+          einmal entschieden hat.
+        </p>
+        <p>
+          Venus in Jungfrau zeigt Liebe durch Fürsorge und aufmerksame Gesten.
+          Sie merkt sich Details und drückt Zuneigung durch Handlungen aus.
+          Große Worte sind ihr weniger wichtig als verlässliches Dasein.
+        </p>
+        <p>
+          Venus in Steinbock liebt langsam, aber beständig.
+          Sie braucht Sicherheit und schätzt einen Partner, der seine
+          Versprechen hält. Oberflächlichkeit und Unzuverlässigkeit sind für
+          diese Venus ein Ausschlusskriterium.
         </p>
 
         <h2>Venus in den Luftzeichen</h2>
         <p>
           Venus in Zwillinge braucht Kommunikation. Lange Gespräche,
           Wortspiele und geistige Verbindung sind der Schlüssel zu ihrem
-          Herzen. Venus in Waage sucht die perfekte Harmonie. Sie liebt
-          elegant und ästhetisch und scheut Konflikte. Venus in Wassermann
-          liebt unkonventionell. Sie braucht Raum und akzeptiert keine Regeln,
-          die keinen Sinn ergeben.
+          Herzen. Langeweile ist der größte Feind dieser Venus.
+        </p>
+        <p>
+          Venus in Waage sucht die perfekte Harmonie. Sie liebt elegant und
+          ästhetisch und scheut Konflikte. Für diese Venus ist eine Beziehung
+          dann schön, wenn beide Partner auf Augenhöhe sind und sich gegenseitig
+          inspirieren.
+        </p>
+        <p>
+          Venus in Wassermann liebt unkonventionell. Sie braucht
+          Raum und akzeptiert keine Regeln, die keinen Sinn ergeben. Diese
+          Venus liebt am besten, wenn sie frei wählen kann und nicht eingeengt
+          wird.
         </p>
 
         <h2>Venus in den Wasserzeichen</h2>
         <p>
           Venus in Krebs liebt fürsorglich und schützend. Hier geht es um
           emotionale Sicherheit und ein Zuhause, in dem die Liebe wachsen
-          kann. Venus in Skorpion liebt intensiv und kompromisslos. Oberflächliche
-          Beziehungen sind nichts für sie; sie will Seelenverwandtschaft.
+          kann. Diese Venus gibt alles für die Menschen, die sie liebt.
+        </p>
+        <p>
+          Venus in Skorpion liebt intensiv und kompromisslos.
+          Oberflächliche Beziehungen sind nichts für sie; sie will
+          Seelenverwandtschaft. Wenn diese Venus liebt, dann ganz oder gar
+          nicht. Vertrauen ist für sie nicht verhandelbar.
+        </p>
+        <p>
           Venus in Fische liebt bedingungslos und poetisch. Sie idealisiert
-          gerne und sieht in ihrem Gegenüber das Beste.
+          gerne und sieht in ihrem Gegenüber das Beste. Ihre Liebe hat etwas
+          Märchenhaftes, und sie braucht einen Partner, der diese Sensibilität
+          zu schätzen weiß.
+        </p>
+
+        <h2>Venus und Mond: dein Beziehungsprofil</h2>
+        <p>
+          Venus zeigt, wie du Liebe ausdrückst, aber dein{" "}
+          <Link href="/wissen/mondzeichen-gefuehle" className="text-gold hover:text-gold-light underline underline-offset-2">
+            Mondzeichen
+          </Link>{" "}
+          zeigt, was du emotional brauchst. Zusammen bilden sie dein
+          Beziehungsprofil. Eine Venus in Widder mit einem Mond in Krebs
+          zum Beispiel liebt leidenschaftlich und direkt, braucht aber
+          emotional ein warmes Nest und viel Geborgenheit. Diese Kombination
+          erklärt oft, warum Menschen in der Liebe widersprüchlich wirken.
+        </p>
+        <p>
+          Auch das{" "}
+          <Link href="/wissen/vier-elemente-astrologie" className="text-gold hover:text-gold-light underline underline-offset-2">
+            Element deiner Venus
+          </Link>{" "}
+          verrät viel darüber, wie du Nähe erlebst. Feuer-Venus braucht
+          Leidenschaft, Erde-Venus Sicherheit, Luft-Venus Kommunikation und
+          Wasser-Venus emotionale Tiefe.
         </p>
 
         <h2>Dein Venus-Zeichen finden</h2>

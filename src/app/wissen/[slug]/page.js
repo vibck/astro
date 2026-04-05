@@ -89,6 +89,37 @@ export default async function ArticlePage({ params }) {
           {/* CTA */}
           <ArticleCta productId={article.relatedProduct} />
         </article>
+
+        {/* Verwandte Artikel */}
+        {article.relatedArticles && article.relatedArticles.length > 0 && (
+          <section className="mt-8">
+            <h2 className="font-serif text-xl text-gold mb-4">Das könnte dich auch interessieren</h2>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {article.relatedArticles.map((relSlug) => {
+                const rel = articles.find((a) => a.slug === relSlug);
+                if (!rel) return null;
+                return (
+                  <Link
+                    key={rel.slug}
+                    href={`/wissen/${rel.slug}`}
+                    className="glass-warm rounded-2xl p-5 hover:shadow-md transition-shadow group"
+                  >
+                    <span className="text-lg mb-1 block">{rel.icon}</span>
+                    <span className="text-xs font-medium text-gold/80 tracking-wide uppercase">
+                      {rel.category}
+                    </span>
+                    <h3 className="font-serif text-base text-earth group-hover:text-gold transition-colors mt-1 mb-1.5">
+                      {rel.title}
+                    </h3>
+                    <p className="text-xs text-earth/60 leading-relaxed line-clamp-2">
+                      {rel.description}
+                    </p>
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
+        )}
       </div>
     </div>
   );
