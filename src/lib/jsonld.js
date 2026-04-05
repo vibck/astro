@@ -65,6 +65,35 @@ export function productJsonLd(product) {
   };
 }
 
+export function articleJsonLd(article) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.description,
+    datePublished: article.publishedDate,
+    dateModified: article.modifiedDate,
+    url: `${baseUrl}/wissen/${article.slug}`,
+    author: {
+      "@type": "Person",
+      name: "Patricia Beck",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Seelensprache",
+      logo: {
+        "@type": "ImageObject",
+        url: `${baseUrl}/logo.png`,
+      },
+    },
+    inLanguage: "de-DE",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${baseUrl}/wissen/${article.slug}`,
+    },
+  };
+}
+
 export function breadcrumbJsonLd(items) {
   return {
     "@context": "https://schema.org",
