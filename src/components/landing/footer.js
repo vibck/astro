@@ -11,6 +11,9 @@ export function Footer() {
           <BrandLogo size="sm" />
 
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-earth">
+            <Link href="/wissen" className="hover:text-gold transition-colors">
+              Wissen
+            </Link>
             <Link href="/impressum" className="hover:text-gold transition-colors">
               Impressum
             </Link>

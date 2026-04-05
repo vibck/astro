@@ -43,6 +43,9 @@ export function Navbar() {
             <Link href="/ueber-mich" className="text-xs lg:text-sm text-earth hover:text-gold transition-colors">
               Über mich
             </Link>
+            <Link href="/wissen" className="text-xs lg:text-sm text-earth hover:text-gold transition-colors">
+              Wissen
+            </Link>
           </div>
 
           {/* Rechts: Cart + CTA + Hamburger */}
@@ -99,6 +102,9 @@ export function Navbar() {
             </a>
             <Link href="/ueber-mich" onClick={handleNavClick} className="text-sm text-earth hover:text-gold transition-colors py-2">
               Über mich
+            </Link>
+            <Link href="/wissen" onClick={handleNavClick} className="text-sm text-earth hover:text-gold transition-colors py-2">
+              Wissen
             </Link>
           </div>
         </div>
