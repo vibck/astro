@@ -46,6 +46,11 @@ export function productJsonLd(product) {
     "@type": "Product",
     name: `Seelensprache ${product.name}`,
     description: product.description,
+    image: `${baseUrl}/logo.png`,
+    brand: {
+      "@type": "Brand",
+      name: "Seelensprache",
+    },
     offers: {
       "@type": "Offer",
       price: (product.price / 100).toFixed(2),
@@ -57,10 +62,38 @@ export function productJsonLd(product) {
         "@type": "Person",
         name: "Patricia Beck",
       },
-    },
-    brand: {
-      "@type": "Brand",
-      name: "Seelensprache",
+      hasMerchantReturnPolicy: {
+        "@type": "MerchantReturnPolicy",
+        applicableCountry: "DE",
+        returnPolicyCategory: "https://schema.org/MerchantReturnNotPermitted",
+      },
+      shippingDetails: {
+        "@type": "OfferShippingDetails",
+        shippingRate: {
+          "@type": "MonetaryAmount",
+          value: "0",
+          currency: "EUR",
+        },
+        shippingDestination: {
+          "@type": "DefinedRegion",
+          addressCountry: "DE",
+        },
+        deliveryTime: {
+          "@type": "ShippingDeliveryTime",
+          handlingTime: {
+            "@type": "QuantitativeValue",
+            minValue: 0,
+            maxValue: 1,
+            unitCode: "DAY",
+          },
+          transitTime: {
+            "@type": "QuantitativeValue",
+            minValue: 3,
+            maxValue: 5,
+            unitCode: "DAY",
+          },
+        },
+      },
     },
   };
 }
