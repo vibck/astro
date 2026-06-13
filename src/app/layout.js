@@ -1,7 +1,9 @@
 import { Inter, Playfair_Display, Dancing_Script } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { BackgroundHighlights } from "@/components/background-highlights";
 import { CartProviderWrapper } from "@/components/cart-provider-wrapper";
 import { JsonLd } from "@/components/json-ld";
+import { PinterestTag } from "@/components/pinterest-tag";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/jsonld";
 import "./globals.css";
 
@@ -78,10 +80,12 @@ export default function RootLayout({ children }) {
     <html lang="de">
       <body className={`${inter.variable} ${playfair.variable} ${dancingScript.variable} antialiased`}>
         <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
+        <PinterestTag />
         <BackgroundHighlights />
         <CartProviderWrapper>
           {children}
         </CartProviderWrapper>
+        <Analytics />
       </body>
     </html>
   );
