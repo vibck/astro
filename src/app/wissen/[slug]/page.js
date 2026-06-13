@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BrandLogo } from "@/components/brand-logo";
 import { JsonLd } from "@/components/json-ld";
-import { breadcrumbJsonLd, articleJsonLd } from "@/lib/jsonld";
+import { breadcrumbJsonLd, articleJsonLd, faqJsonLd } from "@/lib/jsonld";
 import { ArticleCta } from "@/components/wissen/article-cta";
 import { articles, getArticleBySlug } from "@/lib/articles";
 
@@ -47,6 +47,7 @@ export default async function ArticlePage({ params }) {
             { name: article.title },
           ]),
           articleJsonLd(article),
+          ...(article.faq && article.faq.length > 0 ? [faqJsonLd(article.faq)] : []),
         ]}
       />
 

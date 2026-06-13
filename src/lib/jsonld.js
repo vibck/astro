@@ -127,6 +127,21 @@ export function articleJsonLd(article) {
   };
 }
 
+export function faqJsonLd(faqItems) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.a,
+      },
+    })),
+  };
+}
+
 export function breadcrumbJsonLd(items) {
   return {
     "@context": "https://schema.org",
