@@ -46,6 +46,9 @@ export function Navbar() {
             <Link href="/wissen" className="text-xs lg:text-sm text-earth hover:text-gold transition-colors">
               Wissen
             </Link>
+            <Link href="/sternzeichen" className="text-xs lg:text-sm text-earth hover:text-gold transition-colors">
+              Sternzeichen
+            </Link>
           </div>
 
           {/* Rechts: Cart + CTA + Hamburger */}
@@ -92,7 +95,7 @@ export function Navbar() {
         </nav>
 
         {/* Mobile dropdown - bis md */}
-        <div className={`md:hidden overflow-hidden transition-all duration-300 ${menuOpen ? "max-h-60 opacity-100 mt-2" : "max-h-0 opacity-0 mt-0"}`}>
+        <div className={`md:hidden overflow-hidden transition-all duration-300 ${menuOpen ? "max-h-72 opacity-100 mt-2" : "max-h-0 opacity-0 mt-0"}`}>
           <div className="rounded-2xl px-6 py-4 bg-white/90 backdrop-blur-xl border border-rose-light/15 shadow-[0_2px_20px_rgba(196,134,139,0.08)] flex flex-col gap-3">
             <Link href="/#angebot" onClick={handleNavClick} className="text-sm text-earth hover:text-gold transition-colors py-2">
               Angebote
@@ -105,6 +108,9 @@ export function Navbar() {
             </Link>
             <Link href="/wissen" onClick={handleNavClick} className="text-sm text-earth hover:text-gold transition-colors py-2">
               Wissen
+            </Link>
+            <Link href="/sternzeichen" onClick={handleNavClick} className="text-sm text-earth hover:text-gold transition-colors py-2">
+              Sternzeichen
             </Link>
           </div>
         </div>
