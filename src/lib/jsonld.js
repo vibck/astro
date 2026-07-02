@@ -127,6 +127,35 @@ export function articleJsonLd(article) {
   };
 }
 
+export function zodiacJsonLd(sign) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: sign.title,
+    description: sign.description,
+    datePublished: sign.publishedDate,
+    dateModified: sign.modifiedDate,
+    url: `${baseUrl}/sternzeichen/${sign.slug}`,
+    author: {
+      "@type": "Person",
+      name: "Patricia Beck",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Seelensprache",
+      logo: {
+        "@type": "ImageObject",
+        url: `${baseUrl}/logo.png`,
+      },
+    },
+    inLanguage: "de-DE",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${baseUrl}/sternzeichen/${sign.slug}`,
+    },
+  };
+}
+
 export function faqJsonLd(faqItems) {
   return {
     "@context": "https://schema.org",

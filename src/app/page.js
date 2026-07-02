@@ -3,6 +3,7 @@ import { Hero } from "@/components/landing/hero";
 import { Features } from "@/components/landing/features";
 import { Offerings } from "@/components/landing/offerings";
 import { Services } from "@/components/landing/services";
+import { AboutPatricia } from "@/components/landing/about-patricia";
 import { Testimonials } from "@/components/landing/testimonials";
 import { Footer } from "@/components/landing/footer";
 import { JsonLd } from "@/components/json-ld";
@@ -21,6 +22,7 @@ export default function Home() {
       <Offerings />
       <Features />
       <Services />
+      <AboutPatricia />
       <Testimonials />
       <Footer />
     </>

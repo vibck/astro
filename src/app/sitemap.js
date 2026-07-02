@@ -1,4 +1,5 @@
 import { articles } from "@/lib/articles";
+import { zodiacSigns } from "@/lib/sternzeichen";
 
 export default function sitemap() {
   const baseUrl = "https://seelensprache-astro.de";
@@ -6,6 +7,13 @@ export default function sitemap() {
   const articleUrls = articles.map((article) => ({
     url: `${baseUrl}/wissen/${article.slug}`,
     lastModified: article.modifiedDate,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  const zodiacUrls = zodiacSigns.map((sign) => ({
+    url: `${baseUrl}/sternzeichen/${sign.slug}`,
+    lastModified: sign.modifiedDate,
     changeFrequency: "monthly",
     priority: 0.7,
   }));
@@ -30,6 +38,13 @@ export default function sitemap() {
       priority: 0.8,
     },
     ...articleUrls,
+    {
+      url: `${baseUrl}/sternzeichen`,
+      lastModified: "2026-07-02",
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    ...zodiacUrls,
     {
       url: `${baseUrl}/impressum`,
       lastModified: "2026-02-22",
