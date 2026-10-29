@@ -247,7 +247,6 @@ function ReviewPage({ orders, formDataMap, email, accountExists, onEdit, onSubmi
         if (isLast) {
           if (password) {
             payload.password = password;
-            payload.email = email;
           }
           payload.marketingConsent = marketingConsent;
         }
@@ -405,19 +404,20 @@ export function SuccessMultiForm({ orders, email }) {
   const [accountExists, setAccountExists] = useState(null);
 
   const total = pendingOrders.length;
+  const firstOrderId = orders[0]?.id;
 
   // Account-Check einmalig
   useEffect(() => {
-    if (!email) return;
+    if (!firstOrderId) return;
     fetch("/api/check-account", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email }),
+      body: JSON.stringify({ orderId: firstOrderId }),
     })
       .then((res) => res.json())
       .then((data) => setAccountExists(data.exists))
       .catch(() => setAccountExists(false));
-  }, [email]);
+  }, [firstOrderId]);
 
   if (pendingOrders.length === 0 || allDone) {
     const productNames = orders.map((o) => getProduct(o.productType)?.name).filter(Boolean).join(", ");

@@ -18,7 +18,6 @@ export async function POST(request) {
     partnerBirthPlace,
     partnerBirthCoords,
     password,
-    email,
     marketingConsent,
   } = body;
 
@@ -52,6 +51,9 @@ export async function POST(request) {
   }
 
   // Sanitize string inputs (limit length)
+  if (typeof birthName !== "string" || typeof birthPlace !== "string") {
+    return NextResponse.json({ error: "Ungültige Eingabe." }, { status: 400 });
+  }
   if (birthName.length > 100 || birthPlace.length > 300) {
     return NextResponse.json({ error: "Eingabe zu lang." }, { status: 400 });
   }
@@ -104,6 +106,9 @@ export async function POST(request) {
     if (!/^\d{2}:\d{2}$/.test(partnerBirthTime)) {
       return NextResponse.json({ error: "Ungültiges Partner-Zeitformat." }, { status: 400 });
     }
+    if (typeof partnerBirthName !== "string" || typeof partnerBirthPlace !== "string") {
+      return NextResponse.json({ error: "Ungültige Partner-Eingabe." }, { status: 400 });
+    }
     if (partnerBirthName.length > 100 || partnerBirthPlace.length > 300) {
       return NextResponse.json({ error: "Partner-Eingabe zu lang." }, { status: 400 });
     }
@@ -116,7 +121,8 @@ export async function POST(request) {
   }
 
   // Prüfe ob schon ein Account mit dieser E-Mail existiert
-  const orderEmail = email || existingOrder.email;
+  // Immer die E-Mail aus der Bestellung (Stripe) verwenden, nie eine aus dem Request
+  const orderEmail = existingOrder.email;
   let userId = null;
 
   // listUsers filter matcht teilweise fuzzy, daher exakten Vergleich
@@ -130,7 +136,7 @@ export async function POST(request) {
   if (existingUser) {
     // Account existiert schon → Order diesem User zuordnen
     userId = existingUser.id;
-  } else if (password && orderEmail) {
+  } else if (typeof password === "string" && password && orderEmail) {
     // Neuen Account erstellen (nur wenn noch keiner existiert)
     const { data: userData, error: authError } = await supabaseAdmin.auth.admin.createUser({
       email: orderEmail,
