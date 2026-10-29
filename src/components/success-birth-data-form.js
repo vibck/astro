@@ -69,16 +69,16 @@ export function SuccessBirthDataForm({ orderId, productType, email }) {
 
   // Prüfe ob schon ein Account mit dieser E-Mail existiert
   useEffect(() => {
-    if (!email) return;
+    if (!orderId) return;
     fetch("/api/check-account", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email }),
+      body: JSON.stringify({ orderId }),
     })
       .then((res) => res.json())
       .then((data) => setAccountExists(data.exists))
       .catch(() => setAccountExists(false));
-  }, [email]);
+  }, [orderId]);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -118,7 +118,6 @@ export function SuccessBirthDataForm({ orderId, productType, email }) {
 
     if (password) {
       payload.password = password;
-      payload.email = email;
     }
 
     payload.marketingConsent = marketingConsent;

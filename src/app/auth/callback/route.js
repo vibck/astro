@@ -7,7 +7,8 @@ export async function GET(request) {
   const next = searchParams.get("next") ?? "/dashboard";
 
   // Prevent open redirect: only allow relative paths starting with /
-  const safeNext = next.startsWith("/") && !next.startsWith("//") ? next : "/dashboard";
+  // "/\" werten Browser wie "//" → ebenfalls blocken
+  const safeNext = next.startsWith("/") && !next.startsWith("//") && !next.startsWith("/\\") ? next : "/dashboard";
 
   if (code) {
     const supabase = await createClient();

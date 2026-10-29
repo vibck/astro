@@ -19,6 +19,17 @@ const colors = {
   textMuted: "#9B7B80",
 };
 
+// Escaped Sonderzeichen für die sichere Ausgabe in HTML
+function escapeHtml(value) {
+  if (value === null || value === undefined) return "";
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 // Gemeinsames HTML-Layout — kompakterer Header
 function emailLayout(content) {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://seelensprache-astro.de";
@@ -82,6 +93,10 @@ export async function sendNewOrderNotification(order, productName) {
   const adminEmail = process.env.ADMIN_EMAIL;
   if (!adminEmail || !process.env.RESEND_API_KEY) return;
 
+  // Kundeneingaben escapen, damit kein HTML in die Admin-Mail eingeschleust werden kann
+  const o = Object.fromEntries(Object.entries(order).map(([key, value]) => [key, escapeHtml(value)]));
+  const safeProductName = escapeHtml(productName);
+
   const partnerSection = order.partner_birth_name
     ? `
       <tr>
@@ -89,9 +104,9 @@ export async function sendNewOrderNotification(order, productName) {
           <strong style="color:${colors.rose};">Partner-Daten</strong>
         </td>
       </tr>
-      <tr><td style="color:${colors.textMuted};padding:4px 0;">Name:</td><td style="padding:4px 0;">${order.partner_birth_name}</td></tr>
-      <tr><td style="color:${colors.textMuted};padding:4px 0;">Geburtsdatum:</td><td style="padding:4px 0;">${order.partner_birth_date} um ${order.partner_birth_time || "—"}</td></tr>
-      <tr><td style="color:${colors.textMuted};padding:4px 0;">Geburtsort:</td><td style="padding:4px 0;">${order.partner_birth_place || "—"}</td></tr>`
+      <tr><td style="color:${colors.textMuted};padding:4px 0;">Name:</td><td style="padding:4px 0;">${o.partner_birth_name}</td></tr>
+      <tr><td style="color:${colors.textMuted};padding:4px 0;">Geburtsdatum:</td><td style="padding:4px 0;">${o.partner_birth_date} um ${o.partner_birth_time || "—"}</td></tr>
+      <tr><td style="color:${colors.textMuted};padding:4px 0;">Geburtsort:</td><td style="padding:4px 0;">${o.partner_birth_place || "—"}</td></tr>`
     : "";
 
   const html = emailLayout(`
@@ -99,16 +114,16 @@ export async function sendNewOrderNotification(order, productName) {
       &#10024; Neue Bestellung eingegangen
     </h2>
     <table style="width:100%;font-size:15px;color:${colors.text};line-height:1.8;">
-      <tr><td style="color:${colors.textMuted};padding:4px 0;width:140px;">Produkt:</td><td style="padding:4px 0;"><strong>${productName}</strong></td></tr>
-      <tr><td style="color:${colors.textMuted};padding:4px 0;">E-Mail:</td><td style="padding:4px 0;">${order.email}</td></tr>
+      <tr><td style="color:${colors.textMuted};padding:4px 0;width:140px;">Produkt:</td><td style="padding:4px 0;"><strong>${safeProductName}</strong></td></tr>
+      <tr><td style="color:${colors.textMuted};padding:4px 0;">E-Mail:</td><td style="padding:4px 0;">${o.email}</td></tr>
       <tr>
         <td style="padding:12px 0 8px;border-top:1px solid ${colors.sand};" colspan="2">
           <strong style="color:${colors.rose};">Geburtsdaten</strong>
         </td>
       </tr>
-      <tr><td style="color:${colors.textMuted};padding:4px 0;">Name:</td><td style="padding:4px 0;">${order.birth_name}</td></tr>
-      <tr><td style="color:${colors.textMuted};padding:4px 0;">Geburtsdatum:</td><td style="padding:4px 0;">${order.birth_date} um ${order.birth_time}</td></tr>
-      <tr><td style="color:${colors.textMuted};padding:4px 0;">Geburtsort:</td><td style="padding:4px 0;">${order.birth_place}</td></tr>
+      <tr><td style="color:${colors.textMuted};padding:4px 0;">Name:</td><td style="padding:4px 0;">${o.birth_name}</td></tr>
+      <tr><td style="color:${colors.textMuted};padding:4px 0;">Geburtsdatum:</td><td style="padding:4px 0;">${o.birth_date} um ${o.birth_time}</td></tr>
+      <tr><td style="color:${colors.textMuted};padding:4px 0;">Geburtsort:</td><td style="padding:4px 0;">${o.birth_place}</td></tr>
       ${partnerSection}
     </table>
     <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:28px;">
@@ -147,7 +162,7 @@ export async function sendReadingCompleteEmail(email, productName, pdfUrl) {
       &#10025; Wundervolle Neuigkeiten &#10025;
     </p>
     <h2 style="margin:0 0 24px;color:${colors.roseDeep};font-size:24px;font-weight:normal;text-align:center;">
-      Dein <em>${productName}</em> ist bereit
+      Dein <em>${escapeHtml(productName)}</em> ist bereit
     </h2>
     <div style="background:linear-gradient(135deg,${colors.cream},${colors.creamDark});border-radius:16px;padding:28px;margin:0 0 28px;border:1px solid ${colors.sand};">
       <p style="color:${colors.text};font-size:16px;line-height:1.9;margin:0;text-align:center;">
@@ -158,7 +173,7 @@ export async function sendReadingCompleteEmail(email, productName, pdfUrl) {
     <table width="100%" cellpadding="0" cellspacing="0">
       <tr>
         <td align="center">
-          <a href="${pdfUrl}" style="display:inline-block;background:${colors.gold};color:#ffffff;text-decoration:none;padding:16px 40px;border-radius:50px;font-size:17px;letter-spacing:1px;box-shadow:0 4px 20px rgba(184,125,130,0.3);">
+          <a href="${escapeHtml(pdfUrl)}" style="display:inline-block;background:${colors.gold};color:#ffffff;text-decoration:none;padding:16px 40px;border-radius:50px;font-size:17px;letter-spacing:1px;box-shadow:0 4px 20px rgba(184,125,130,0.3);">
             &#10024;&ensp;Dein Reading herunterladen
           </a>
         </td>
